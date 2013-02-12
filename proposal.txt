@@ -1,0 +1,13 @@
+Members: Spencer Florence & Josh Caron
+Description:
+  We intend to design a system for keeping track of permissions that users have
+  on resources. The system will understand 'Resources' as entities a user may act
+  upon, 'Permissions' as performable actions, 'Groups' as sets of users and
+  groups, and 'Users' as the entity that can perform actions. We will have an
+  web front end that will allow a user to assign users and groups to groups, and
+  create 'Permission Sets', which bind together a Resource, Group and Permission
+  with either and explicit deny or allow.
+Technologies: PHP, JQuery, Bootstrap.
+Interest: This project is a problem we have systems handle poorly before (for
+instance, ApacheShiro or ASP.net Membership), and it would be nice to see it
+done correctly for once.
