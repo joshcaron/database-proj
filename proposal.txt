@@ -8,6 +8,6 @@ Description:
   create 'Permission Sets', which bind together a Resource, Group and Permission
   with either and explicit deny or allow.
 Technologies: PHP, JQuery, Bootstrap.
-Interest: This project is a problem we have systems handle poorly before (for
+Interest: This project is a problem we have seen systems handle poorly before (for
 instance, ApacheShiro or ASP.net Membership), and it would be nice to see it
 done correctly for once.
