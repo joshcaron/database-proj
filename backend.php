@@ -1,4 +1,4 @@
-<?
+<?php
 /*
  * to use any function in this module first call connect()
  * at the end of a page call disconnect()
