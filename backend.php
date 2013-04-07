@@ -27,7 +27,7 @@ function disconnect() {
 // String [[Arrayof Int] = array()] ->
 function create_user($name, $groups = array()){
   global $LINK;
-  mysql_query("INSERT INTO users(name) VALUES (\"$name\");",$LINK);
+  mysql_query("INSERT INTO users(\"name\") VALUES (\"$name\");",$LINK);
   $id = get_user_id($name);
   add_user_to_groups($id,$groups);
 }
@@ -35,7 +35,7 @@ function create_user($name, $groups = array()){
 // String [[Arrayof int] = array()] [[Arrayof int] = array()] ->
 function create_group($name,$users = array(), $groups = array()) {
   global $LINK;
-  mysql_query("INSERT INTO groups(name)  VALUES ($name)",$LINK);
+  mysql_query("INSERT INTO groups(\"name\")  VALUES ($name)",$LINK);
   $id = get_group_id($name);
   foreach($users as $user) {
     add_user_to_groups($user,array($id));
@@ -48,7 +48,7 @@ function create_group($name,$users = array(), $groups = array()) {
 // String ->
 function create_resource($uri) {
   global $LINK;
-  mysql_query("INSERT INTO resources VALUES ($uri)",$LINK);
+  mysql_query("INSERT INTO resources VALUES (\"$uri\")",$LINK);
 }
 
 // Int String String [Boolean = true] ->
