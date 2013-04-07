@@ -77,6 +77,26 @@ function add_group_to_groups($id,$groups) {
     mysql_query("INSERT INTO group_group_mapping (contained,container) VALUES ($group,$id)",$LINK);
   }
 }
+
+// Int ->
+function delete_user($id) {
+  global $LINK;
+  mysql_query("DELETE FROM users WHERE id = $id",$LINK);
+}
+function delete_group($id) {
+  global $LINK;
+  mysql_query("DELETE FROM groups WHERE id = $id",$LINK);
+}
+
+// Int Int ->
+function delete_group_from_group($contained,$container) {
+  global $LINK;
+  mysql_query("DELETE FROM group_group_mapping WHERE container = $container AND contained = $contained");
+}
+function delete_user_from_group($contained,$container) {
+  global $LINK;
+  mysql_query("DELETE FROM user_group_mapping WHERE container = $container AND contained = $contained");
+}
 /*
  * querying
  */
