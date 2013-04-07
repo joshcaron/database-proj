@@ -16,11 +16,26 @@ function disconnect($link) {
   mysql_close($link);
 }
 
+/*
+ * Creating
+ */
+
+// String [[Arrayof Int] = null] ->
+//function create_user
+
+/*
+ * Modifying
+ */
+
+/*
+ * querying
+ */
+
 // Int String String -> Boolean
 function does_user_has_access($uid,$uri,$action){
   $user_groups = get_user_groups($uid);
   $permission_set_groups = get_permission_set_groups(get_permission_sets($uri,$action));
-  for($user_groups as $id) {
+  foreach($user_groups as $id) {
     if(in_array($id,$permission_set_groups)) {
       return true;
     }
@@ -30,7 +45,7 @@ function does_user_has_access($uid,$uri,$action){
 
 // [Array Ints] -> [Arrayof Ints]
 function get_permission_set_groups($ids){
-  return mysql_fetch_array(mysql_query("SELECT group_id FROM permission_sets WHERE id in (\"" . (implode("\", \"",$ids) . "\")"));
+  return mysql_fetch_array(mysql_query("SELECT group_id FROM permission_sets WHERE id in (\"" . implode("\", \"",$ids) . "\")"));
 }
 
 // String String -> [Arrayof Ints]
