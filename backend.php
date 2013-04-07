@@ -87,12 +87,14 @@ function get_user_groups($id) {
 
 // String -> Int
 function get_user_id($user) {
-  return mysql_fetch_array(mysql_query("SELECT id FROM users WHERE name = $user"))[0];
+  $res =  mysql_fetch_array(mysql_query("SELECT id FROM users WHERE name = $user"));
+  return $res[0];
 }
 
 // String -> Int
 function get_group_id($group){
-  return mysql_fetch_array(mysql_query("SELECT id FROM groups WHERE name = $group"))[0];
+  $res =  mysql_fetch_array(mysql_query("SELECT id FROM groups WHERE name = $group"));
+  return $res[0];
 }
 
 // -> Arrayof Strings
