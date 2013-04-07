@@ -27,7 +27,7 @@ function create_user($name, $groups = array()){
   add_user_to_groups($id,$groups);
 }
 
-// String [[Arrayof int] = array()] [[Arrayof int] = array()]
+// String [[Arrayof int] = array()] [[Arrayof int] = array()] ->
 function create_group($name,$users = array(), $groups = array()) {
   mysql_query("INSERT INTO groups(name)  VALUES ($name)");
   $id = get_group_id($name);
@@ -38,6 +38,14 @@ function create_group($name,$users = array(), $groups = array()) {
     add_group_to_groups($group,array($id));
   }
 }
+
+// String ->
+function create_resource($uri) {
+  mysql_query("INSERT INTO resources VALUES ($uri)");
+}
+
+// Int String String [Boolean = true] ->
+function create_permission_set($group,$uri,$action,$access = true) {}
 
 /*
  * Modifying
