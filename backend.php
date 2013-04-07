@@ -52,7 +52,9 @@ function create_resource($uri) {
 }
 
 // Int String String [Boolean = true] ->
-function create_permission_set($group,$uri,$action,$access = true) {}
+function create_permission_set($group,$uri,$action,$access = true) {
+  global $LINK;
+}
 
 /*
  * Modifying
@@ -138,14 +140,14 @@ function get_user_groups($id) {
 // String -> Int
 function get_user_id($user) {
   global $LINK;
-  $res =  mysql_fetch_array(mysql_query("SELECT id FROM users WHERE name = $user",$LINK));
+  $res =  mysql_fetch_array(mysql_query("SELECT id FROM users WHERE name = \"$user\"",$LINK));
   return $res[0];
 }
 
 // String -> Int
 function get_group_id($group){
   global $LINK;
-  $res =  mysql_fetch_array(mysql_query("SELECT id FROM groups WHERE name = $group",$LINK));
+  $res =  mysql_fetch_array(mysql_query("SELECT id FROM groups WHERE name = \"$group\"",$LINK));
   return $res[0];
 }
 
