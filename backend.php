@@ -116,13 +116,13 @@ function does_user_has_access($uid,$uri,$action){
 // [Array Ints] -> [Arrayof Ints]
 function get_permission_set_groups($ids){
   global $LINK;
-  return mysql_fetch_array(mysql_query("SELECT group_id FROM permission_sets WHERE id in (\"" . implode("\", \"",$ids) . "\")",$LINK));
+  return single_results_to_array(mysql_query("SELECT group_id FROM permission_sets WHERE id in (\"" . implode("\", \"",$ids) . "\")",$LINK));
 }
 
 // String String -> [Arrayof Ints]
 function get_permission_sets($uri,$action){
   global $LINK;
-  return mysql_fetch_array(mysql_query("SELECT group_id FROM permission_sets WHERE resource_uri = \"$url\" AND action_name = \"$action\"",$LINK));
+  return single_results_to_array(mysql_query("SELECT group_id FROM permission_sets WHERE resource_uri = \"$url\" AND action_name = \"$action\"",$LINK));
 }
 
 // Int -> Arrayof Int
@@ -138,7 +138,7 @@ function get_groups_groups($ids) {
   $results = $todos;
   while(!empty($todos)) {
     foreach($todos as $id) {
-      $news = mysql_fetch_array(mysql_query("SELECT contained_id FROM group_group_mapping WHERE container_id = $id",$LINK));
+      $news = single_results_to_array(mysql_query("SELECT contained_id FROM group_group_mapping WHERE container_id = $id",$LINK));
       foreach($news as $new) {
         if(!in_array($new,$results)){
           array_push($results,$new);
@@ -156,7 +156,7 @@ function get_groups_groups($ids) {
 function get_user_groups($id) {
   global $LINK;
   $groups_id = mysql_query("SELECT group_id FROM user_group_mapping WHERE id = $id",$LINK);
-  return get_groups_groups(mysql_fetch_array($groups_id));
+  return get_groups_groups(single_results_to_array($groups_id));
 }
 
 // String -> Int
@@ -176,17 +176,26 @@ function get_group_id($group){
 // -> Arrayof Strings
 function get_all_users() {
   global $LINK;
-  return mysql_fetch_array(mysql_query("SELECT name FROM users",$LINK));
+  return single_results_to_array(mysql_query("SELECT name FROM users",$LINK));
 }
 function get_all_groups(){
   global $LINK;
-  return mysql_fetch_array(mysql_query("SELECT name FROM groups",$LINK));
+  return single_results_to_array(mysql_query("SELECT name FROM groups",$LINK));
 }
 function get_all_resources(){
   global $LINK;
-  return mysql_fetch_array(mysql_query("SELECT uri FROM resources",$LINK));
+  return single_results_to_array(mysql_query("SELECT uri FROM resources",$LINK));
 }
 function get_all_actions(){
   global $LINK;
-  return mysql_fetch_array(mysql_query("SELECT name FROM actions",$LINK));
+  return single_results_to_array(mysql_query("SELECT name FROM actions",$LINK));
+}
+
+
+function single_results_to_array($result) {
+  $res = array();
+  while ($next = mysql_fetch_array($result)) {
+    array_push($res[0]);
+  }
+  return $res;
 }
