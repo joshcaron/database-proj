@@ -195,7 +195,7 @@ function get_all_actions(){
 function single_results_to_array($result) {
   $res = array();
   while ($next = mysql_fetch_array($result)) {
-    array_push($res[0]);
+    array_push($res,$next[0]);
   }
   return $res;
 }
