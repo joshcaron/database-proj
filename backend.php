@@ -26,6 +26,7 @@ function disconnect() {
 
 // String [[Arrayof Int] = array()] ->
 function create_user($name, $groups = array()){
+  global $LINK;
   mysql_query("INSERT INTO users(name) VALUES (\"$name\");",$LINK);
   $id = get_user_id($name);
   add_user_to_groups($id,$groups);
@@ -33,6 +34,7 @@ function create_user($name, $groups = array()){
 
 // String [[Arrayof int] = array()] [[Arrayof int] = array()] ->
 function create_group($name,$users = array(), $groups = array()) {
+  global $LINK;
   mysql_query("INSERT INTO groups(name)  VALUES ($name)",$LINK);
   $id = get_group_id($name);
   foreach($users as $user) {
@@ -45,6 +47,7 @@ function create_group($name,$users = array(), $groups = array()) {
 
 // String ->
 function create_resource($uri) {
+  global $LINK;
   mysql_query("INSERT INTO resources VALUES ($uri)",$LINK);
 }
 
@@ -57,6 +60,7 @@ function create_permission_set($group,$uri,$action,$access = true) {}
 
 // Int [Arrayof Int] ->
 function add_user_to_groups($id,$groups) {
+  global $LINK;
   foreach($groups as $group) {
     mysql_query("INSERT INTO user_group_mapping (user,group) VALUES ($id,$group)",$LINK);
   }
@@ -64,6 +68,7 @@ function add_user_to_groups($id,$groups) {
 
 // Int [Arrayof Int] ->
 function add_group_to_groups($id,$groups) {
+  global $LINK;
   foreach($groups as $group) {
     mysql_query("INSERT INTO group_group_mapping (contained,container) VALUES ($group,$id)",$LINK);
   }
@@ -86,11 +91,13 @@ function does_user_has_access($uid,$uri,$action){
 
 // [Array Ints] -> [Arrayof Ints]
 function get_permission_set_groups($ids){
+  global $LINK;
   return mysql_fetch_array(mysql_query("SELECT group_id FROM permission_sets WHERE id in (\"" . implode("\", \"",$ids) . "\")",$LINK));
 }
 
 // String String -> [Arrayof Ints]
 function get_permission_sets($uri,$action){
+  global $LINK;
   return mysql_fetch_array(mysql_query("SELECT group_id FROM permission_sets WHERE resource_uri = \"$url\" AND action_name = \"$action\"",$LINK));
 }
 
@@ -101,6 +108,7 @@ function get_group_groups($id) {
 
 // [Arrayof Int] -> [Arrayof Int]
 function get_groups_groups($ids) {
+  global $LINK;
   $todos = $ids;
   $acc = array();
   $results = $todos;
@@ -122,32 +130,39 @@ function get_groups_groups($ids) {
 
 // Int -> [Arrayof Int]
 function get_user_groups($id) {
+  global $LINK;
   $groups_id = mysql_query("SELECT group_id FROM user_group_mapping WHERE id = $id",$LINK);
   return get_groups_groups(mysql_fetch_array($groups_id));
 }
 
 // String -> Int
 function get_user_id($user) {
+  global $LINK;
   $res =  mysql_fetch_array(mysql_query("SELECT id FROM users WHERE name = $user",$LINK));
   return $res[0];
 }
 
 // String -> Int
 function get_group_id($group){
+  global $LINK;
   $res =  mysql_fetch_array(mysql_query("SELECT id FROM groups WHERE name = $group",$LINK));
   return $res[0];
 }
 
 // -> Arrayof Strings
 function get_all_users() {
+  global $LINK;
   return mysql_fetch_array(mysql_query("SELECT name FROM users",$LINK));
 }
 function get_all_groups(){
+  global $LINK;
   return mysql_fetch_array(mysql_query("SELECT name FROM groups",$LINK));
 }
 function get_all_resources(){
+  global $LINK;
   return mysql_fetch_array(mysql_query("SELECT uri FROM resources",$LINK));
 }
 function get_all_actions(){
+  global $LINK;
   return mysql_fetch_array(mysql_query("SELECT name FROM actions",$LINK));
 }
