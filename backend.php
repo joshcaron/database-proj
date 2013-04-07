@@ -20,13 +20,42 @@ function disconnect($link) {
  * Creating
  */
 
-// String [[Arrayof Int] = null] ->
-//function create_user
+// String [[Arrayof Int] = array()] ->
+function create_user($name, $groups = array()){
+  mysql_query("INSERT INTO users(name) VALUES (\"$name\");");
+  $id = get_user_id($name);
+  add_user_to_groups($id,$groups);
+}
+
+// String [[Arrayof int] = array()] [[Arrayof int] = array()]
+function create_group($name,$users = array(), $groups = array()) {
+  mysql_query("INSERT INTO groups(name)  VALUES ($name)");
+  $id = get_group_id($name);
+  foreach($users as $user) {
+    add_user_to_groups($user,array($id));
+  }
+  foreach($group as $group) {
+    add_group_to_groups($group,array($id));
+  }
+}
 
 /*
  * Modifying
  */
 
+// Int [Arrayof Int] ->
+function add_user_to_groups($id,$groups) {
+  foreach($groups as $group) {
+    mysql_query("INSERT INTO user_group_mapping (user,group) VALUES ($id,$group)");
+  }
+}
+
+// Int [Arrayof Int] ->
+function add_group_to_groups($id,$groups) {
+  foreach($groups as $group) {
+    mysql_query("INSERT INTO group_group_mapping (contained,container) VALUES ($group,$id)");
+  }
+}
 /*
  * querying
  */
