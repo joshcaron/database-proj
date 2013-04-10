@@ -8,28 +8,34 @@ $LINK = NULL;
 
 // get db connection
 function connect() {
-  // global $LINK;
+  global $LINK;
 
-  // $url=parse_url(getenv("CLEARDB_DATABASE_URL"));
-
-  // $server = $url["host"];
-  // $username = $url["user"];
-  // $password = $url["pass"];
-  // $db = substr($url["path"],1);
-
-  // $conn = mysql_connect($server, $username, $password);
-          
-  
-  // mysql_select_db($db);
-  // $LINK = $conn;
-
-  // return $conn;
-
-    global $LINK;
-    $conn = mysql_connect("localhost","root","") or die ("dbconnect failed");
+  // Try localhost connection first
+  $conn = mysql_connect("localhost","root","") or die ("dbconnect failed");
+  if ($conn) {
     mysql_select_db("db_final") or die ("dbconnect failed");
     $LINK = $conn;
     return $conn;
+  }
+
+  // Try server connections
+  $url=parse_url(getenv("CLEARDB_DATABASE_URL"));
+
+  $server = $url["host"];
+  $username = $url["user"];
+  $password = $url["pass"];
+  $db = substr($url["path"],1);
+
+  $conn = mysql_connect($server, $username, $password);
+  if ($conn) {
+    mysql_select_db($db);
+    $LINK = $conn;
+
+    return $conn;
+  }
+
+  // No connection could be made
+  die ('Could not connect to database. ' . mysql_error());
 }
 
 // unget db connection

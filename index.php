@@ -12,6 +12,16 @@
             <div class="span2"></div>
             <div class="span8" id="inner_container">
                 <h1 id="title">Database Design Project</h1>
+                <?php 
+                include_once "backend.php"
+
+                $connected = connect();
+
+                if (!$connected) {
+                    echo "<div class=\"error\"><p>Could not connect to database. Proceed at own risk.</p></div>";
+                }
+
+                ?>
                 <div class="container" id="buttons">
                     <a href="create" class="btn btn-large btn-block btn-primary">Create</a>
                     <a href="modify" class="btn btn-large btn-block btn-danger">Modify</a>
