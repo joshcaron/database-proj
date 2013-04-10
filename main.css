@@ -41,3 +41,8 @@ body {
 .control-group label {
     text-align: left;
 }
+
+
+#results {
+    text-align: center;
+}

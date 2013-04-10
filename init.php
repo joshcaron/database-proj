@@ -1,16 +1,45 @@
-<?
+<html>
+<head>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+    <div class="row-fluid" id="main_container">
+        <div class="span12">
+        </div>
+        <div class="row-fluid">
+            <div class="span2"></div>
+            <div class="span8" id="inner_container">
+                <h1 id="title">Initialization</h1>
+                <div id="results">
+                    <?php
 
-include_once "backend.php";
+                    include_once "backend.php";
 
-connect();
-$group = array('');
-create_user("Josh", $group);
-create_user("Jeff");
-create_user("Paul");
-echo "Created Users!";
+                    connect();
 
+                    echo "<p>Connected!</p>";
 
-echo "Connected!";
-create_group("Group A");
-create_group("Group B");
-echo "Created groups!";
+                    create_group("Group A");
+                    create_group("Group B");
+                    echo "<p>Created groups!</p>";
+
+                    create_user("Josh");
+                    create_user("Jeff");
+                    create_user("Paul");
+                    echo "<p>Created Users!</p>";
+
+                    ?>
+                    <a href="index.php">Back</back>
+                </div>
+                
+            </div>
+            <div class="span2">
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
