@@ -16,10 +16,11 @@
                     <a href="create" class="btn btn-large btn-block btn-primary">Create</a>
                     <a href="modify" class="btn btn-large btn-block btn-danger">Modify</a>
                     <a href="query" class="btn btn-large btn-block btn-success">Query</a>
+                    <a href="init.php">Init data</a>
+                    <a href="clear.php">Clear data</a>
                 </div>
             </div>
             <div class="span2">
-
             </div>
         </div>
     </div>
