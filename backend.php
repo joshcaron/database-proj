@@ -9,8 +9,8 @@ $LINK = NULL;
 // get db connection
 function connect() {
   global $LINK;
-  $conn = mysql_connect("localhost","root","") or die ("dbconnect failed");
-  mysql_select_db("db_final") or die ("dbconnect failed");
+  $conn = mysql_connect("joshcaroncom.ipagemysql.com","password","root") or die ("dbconnect failed");
+  mysql_select_db("database_proj") or die ("dbconnect failed");
   $LINK = $conn;
   return $conn;
 }
