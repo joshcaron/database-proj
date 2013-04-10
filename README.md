@@ -1,3 +1,3 @@
-Permission App
-==============
-Simple permissions application for CS 3200
+Dabase Design Project
+=====================
+This is the repo.
