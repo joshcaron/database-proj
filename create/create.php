@@ -20,3 +20,10 @@ function get_all_user_names() {
         echo create_option($name);
     }
 }
+
+function get_all_action_names() {
+    $actions = get_all_actions();
+    foreach($actions as $a) {
+        echo create_option($a);
+    }
+}
