@@ -13,11 +13,11 @@
             <div class="span8" id="inner_container">
                 <h1 id="title">Database Design Project</h1>
                 <?php 
-                include_once "backend.php"
+                include_once "backend.php";
 
-                $connected = connect();
+                connect();
 
-                if (!$connected) {
+                if (!$LINK) {
                     echo "<div class=\"error\"><p>Could not connect to database. Proceed at own risk.</p></div>";
                 }
 
