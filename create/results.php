@@ -18,11 +18,11 @@
 
                 <?php
 
-                $type = urldecode($_GET["create_what"]);
+                $type = urldecode($_POST["create_what"]);
                 echo "<p>Type: " . $type . "</p>";
                 if ($type == "user") {
-                    $user_name = urldecode($_GET["user_name"]);
-                    $user_groups = $_GET["user_groups"];
+                    $user_name = urldecode($_POST["user_name"]);
+                    $user_groups = $_POST["user_groups"];
                     create_user($user_name, $user_groups);
                     echo "<p>You created a User!</p>";
                     echo "<p>Name: " . $user_name . "</p>";
@@ -34,9 +34,9 @@
                 }
 
                 if ($type == "group") {
-                    $group_name = $_GET["group_name"];
-                    $group_users = $_GET["group_users"];
-                    $group_groups = $_GET["group_groups"];
+                    $group_name = $_POST["group_name"];
+                    $group_users = $_POST["group_users"];
+                    $group_groups = $_POST["group_groups"];
                     create_group($group_name, $group_users, $group_groups);
 
                     echo "<p>You created a Group!</p>";
@@ -54,20 +54,20 @@
                 }
 
                 if ($type == "resource") {
-                    $resource_name = $_GET["resource_name"];
+                    $resource_name = $_POST["resource_name"];
                     create_resource($resource_name);
                     echo "<p>You created a Resource!</p>";
                     echo "<p>Name: " . $resource_name . "</p>";
                 }
 
                 if ($type == "permission") {
-                    $group_select = $_GET["group_select"];
-                    $action_type = $_GET["action_type"];
+                    $group_select = $_POST["group_select"];
+                    $action_type = $_POST["action_type"];
                     create_permission_set($group_select, $resource_select, $action_type);
                     echo "<p>You created a Permission Set!</p>";
-                    echo "<p>Group: " . urldecode($_GET["group_select"]) . "</p>";
-                    echo "<p>Resource: " . urldecode($_GET["resource_select"]) . "</p>";
-                    echo "<p>Action: " . urldecode($_GET["action_type"]) . "</p>";
+                    echo "<p>Group: " . urldecode($_POST["group_select"]) . "</p>";
+                    echo "<p>Resource: " . urldecode($_POST["resource_select"]) . "</p>";
+                    echo "<p>Action: " . urldecode($_POST["action_type"]) . "</p>";
                 }
 
                 ?> 

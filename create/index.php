@@ -16,7 +16,7 @@
             <div class="span8" id="inner_container">
                 <h1 id="title">Create Things</h1>
                 <div id="query_form">
-                    <form action="results.php" method="get">
+                    <form action="results.php" method="post">
 
                         <!-- Options to Create -->
                         <div class="control-group">
