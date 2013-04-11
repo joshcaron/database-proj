@@ -44,7 +44,11 @@ function created_what() {
 function created_user() {
     $user_name = urldecode($_POST["user_name"]);
     $user_groups = $_POST["user_groups"];
-    create_user($user_name, $user_groups);
+    $group_ids = array();
+    foreach($user_groups as $group) {
+        array_push(get_group_id($group));
+    }
+    create_user($user_name, $group_ids);
     echo "<tr><td>Name</td><td>" . $user_name . "</td></tr>";
 
     if ($user_groups) {
