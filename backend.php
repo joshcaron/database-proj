@@ -34,8 +34,6 @@ function connect() {
     return $conn;
   }
 
-  // No connection could be made
-  die ('Could not connect to database. ' . mysql_error());
 }
 
 // unget db connection
