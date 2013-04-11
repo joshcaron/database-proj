@@ -27,3 +27,9 @@ function get_all_action_names() {
         echo create_option($a);
     }
 }
+function get_all_resource_names() {
+    $resources = get_all_resources();
+    foreach($resources as $r) {
+        echo create_option($r);
+    }
+}

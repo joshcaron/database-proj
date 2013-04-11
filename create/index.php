@@ -121,6 +121,17 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- Select Resource to give permission on -->
+                            <div class="control-group">
+                                <div class="control-container">
+                                    <label class="control-label" for="group_select">Resource</label>
+                                    <div class="controls">
+                                        <select name="group_select">
+                                            <?php echo get_all_resource_names(); ?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                             <!-- Select Action type -->
                             <div class="control-group">
                                 <div class="control-container">
