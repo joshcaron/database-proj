@@ -15,9 +15,16 @@
             <div class="span8" id="inner_container">
                 <h1 id="title">Query Things</h1>
                 <?php
-                    echo "<p>" . urldecode($_POST["user"]);
-                    echo "<p>" . urldecode($_POST["resource"]);
-                    echo "<p>" . urldecode($_POST["action"]);
+                $user = urldecode($_POST["user"]);
+                $resource = urldecode($_POST["resource"]);
+                $action = urldecode($_POST["action"]);
+                $uid = get_user_id($user);
+                $allow = does_user_has_access($uid, $resource, $action);
+                echo "<p>User: " . $user . "</p>";
+                echo "<p>Resource: " . $resource . "</p>";
+                echo "<p>Action: " . $action . "</p>";
+                echo "<p>Allow: " . $allow "</p>";
+
                 ?>
             </div>
         <div class="span2"></div>
