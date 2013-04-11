@@ -12,7 +12,7 @@
             <div class="span2"></div>
             <div class="span8" id="inner_container">
                 <h1 id="title">Database Design Project</h1>
-<!--                <?php 
+		<?php 
                 include_once "backend.php";
 
                $connection =  connect();
@@ -22,7 +22,7 @@
                 }
 
                 ?>
-   -->             <div class="container" id="buttons">
+   		<div class="container" id="buttons">
                     <a href="create" class="btn btn-large btn-block btn-primary">Create</a>
                     <a href="modify" class="btn btn-large btn-block btn-danger">Modify</a>
                     <a href="query" class="btn btn-large btn-block btn-success">Query</a>
