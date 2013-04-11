@@ -17,30 +17,43 @@
                 <p>RESULTS</p>
 
                 <?php
-                $type = urldecode($_GET["what"]);
-
+                $type = urldecode($_GET["create_what"]);
                 if ($type == "user") {
                     echo "<p>You created a User!</p>";
+                    echo "<p>Name: " . urldecode($_GET["user_name"]) . "</p>";
+                    echo "<p>Groups: <br />";
+                    foreach ($_GET["user_groups"] as $group) {
+                        echo "" . urldecode($group) . "<br />";
+                    }
+                    echo "</p>";
                 }
 
                 if ($type == "group") {
                     echo "<p>You created a Group!</p>";
+                    echo "<p>Name: " . urldecode($_GET["group_name"]) . "</p>";
+                    echo "<p>Users: <br />";
+                    foreach ($_GET["group_users"] as $user) {
+                        echo "" . urldecode($user) . "<br />";
+                    }
+                    echo "</p>";
+                    echo "<p>Groups: <br />";
+                    foreach ($_GET["group_groups"] as $group) {
+                        echo "" . urldecode($group) . "<br />";
+                    }
+                    echo "</p>";
                 }
 
                 if ($type == "resource") {
                     echo "<p>You created a Resource!</p>";
+                    echo "<p>Name: " . urldecode($_GET["resource_name"]) . "</p>";
                 }
 
                 if ($type == "permission") {
                     echo "<p>You created a Permission Set!</p>";
+                    echo "<p>Group: " . urldecode($_GET["group_select"]) . "</p>";
+                    echo "<p>Action: " . urldecode($_GET["action_type"]) . "</p>";
                 }
 
-                    echo "<p>" . urldecode($_GET["user"]) . "</p>";
-                    echo "<p>" . urldecode($_GET["what"]) . "</p>";
-                    var_dump($_GET["groups"]);
-                    foreach ($_GET["groups"] as $group) {
-                        echo "<p>" . urldecode($group);
-                    }
                 ?> 
             </div>
         <div class="span2"></div>

@@ -40,7 +40,7 @@
                                 <div class="control-container">
                                     <label class="control-label" for="type">Name</label>
                                     <div class="controls">
-                                        <input type="text" name="user" placeholder="Enter user name..." style="width:220px">
+                                        <input type="text" name="user_name" placeholder="Enter user name..." style="width:220px">
                                     </div>
                                 </div>
                             </div>
@@ -49,7 +49,7 @@
                                 <div class="control-container">
                                     <label class="control-label" for="resource">Groups</label>
                                     <div class="controls">
-                                        <select name="groups[]" multiple="multiple">
+                                        <select name="user_groups[]" multiple="multiple">
                                             <?php echo get_all_group_names(); ?>
                                         </select>
                                     </div>
@@ -65,7 +65,7 @@
                                 <div class="control-container">
                                     <label class="control-label" for="type">Name</label>
                                     <div class="controls">
-                                        <input type="text" placeholder="Enter group name..." style="width:220px;">
+                                        <input name="group_name" type="text" placeholder="Enter group name..." style="width:220px;">
                                     </div>
                                 </div>
                             </div>
@@ -75,7 +75,7 @@
                                 <div class="control-container">
                                     <label class="control-label" for="resource">Users</label>
                                     <div class="controls">
-                                        <select name="groups[]" multiple="multiple">
+                                        <select name="group_users[]" multiple="multiple">
                                             <?php echo get_all_user_names(); ?>
                                         </select>
                                     </div>
@@ -87,7 +87,7 @@
                                 <div class="control-container">
                                     <label class="control-label" for="resource">Groups</label>
                                     <div class="controls">
-                                        <select name="groups[]" multiple="multiple">
+                                        <select name="group_groups[]" multiple="multiple">
                                             <?php echo get_all_group_names(); ?>
                                         </select>
                                     </div>
@@ -102,7 +102,7 @@
                                 <div class="control-container">
                                     <label class="control-label" for="type">Name</label>
                                     <div class="controls">
-                                        <input type="text" placeholder="Enter resource name..." style="width:220px;">
+                                        <input name="resource_name" type="text" placeholder="Enter resource name..." style="width:220px;">
                                     </div>
                                 </div>
                             </div>
@@ -115,7 +115,7 @@
                                 <div class="control-container">
                                     <label class="control-label" for="resource">Group</label>
                                     <div class="controls">
-                                        <select name="group">
+                                        <select name="group_select">
                                             <?php echo get_all_group_names(); ?>
                                         </select>
                                     </div>
@@ -126,7 +126,7 @@
                                 <div class="control-container">
                                     <label class="control-label" for="type">Permission to Give</label>
                                     <div class="controls">
-                                        <select name="type">
+                                        <select name="action_type">
                                             <?php echo get_all_action_names(); ?>
                                         </select> 
                                     </div>
