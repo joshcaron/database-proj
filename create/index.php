@@ -126,7 +126,7 @@
                                 <div class="control-container">
                                     <label class="control-label" for="group_select">Resource</label>
                                     <div class="controls">
-                                        <select name="group_select">
+                                        <select name="resource_select">
                                             <?php echo get_all_resource_names(); ?>
                                         </select>
                                     </div>

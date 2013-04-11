@@ -62,6 +62,7 @@
 
                 if ($type == "permission") {
                     $group_select = $_POST["group_select"];
+                    $resource_select = $_POST["resource_select"];
                     $action_type = $_POST["action_type"];
                     create_permission_set($group_select, $resource_select, $action_type);
                     echo "<p>You created a Permission Set!</p>";
