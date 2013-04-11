@@ -4,12 +4,7 @@ include_once "backend.php";
 
 connect();
 
-$sql = "
-
-
-
-DROP TABLE IF EXISTS `actions`;
-CREATE TABLE `actions` (
+$sql = "DROP TABLE IF EXISTS `actions`;CREATE TABLE `actions` (
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -61,9 +56,6 @@ CREATE TABLE `permission_sets` (
 LOCK TABLES `permission_sets` WRITE;
 UNLOCK TABLES;
 
---
--- Table structure for table `resources`
---
 
 DROP TABLE IF EXISTS `resources`;
 CREATE TABLE `resources` (
