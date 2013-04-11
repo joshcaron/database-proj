@@ -17,7 +17,9 @@
                 <p>RESULTS</p>
 
                 <?php
+
                 $type = urldecode($_GET["create_what"]);
+                echo "<p>Type: " . $type . "</p>";
                 if ($type == "user") {
                     echo "<p>You created a User!</p>";
                     echo "<p>Name: " . urldecode($_GET["user_name"]) . "</p>";
