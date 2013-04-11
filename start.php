@@ -92,7 +92,7 @@ UNLOCK TABLES;
 
 ";
 
-$success = mysql_query($query, $LINK);
+$success = mysql_query($sql, $LINK);
 
 if ($success) {
     echo "SUCCESS";
