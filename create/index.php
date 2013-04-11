@@ -8,6 +8,7 @@
     <?php include_once "create.php"; ?>
 </head>
 <body>
+    THIS IS A TEST
     <div class="row-fluid" id="main_container">
         <div class="span12">
         </div>
