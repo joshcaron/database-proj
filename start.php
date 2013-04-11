@@ -205,7 +205,7 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2013-04-06 23:04:46
-"
+";
 
 $success = mysql_query($query, $LINK);
 
