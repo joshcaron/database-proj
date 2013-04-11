@@ -14,7 +14,10 @@ body {
 
 #inner_container {
     background-color: #FFF;
-    min-height: 60%;
+
+    min-height: 60%; 
+    border-radius: 10px;
+    box-shadow: 10px 10px 2px #ABABAB;
 }
 
 #buttons {
@@ -38,4 +41,8 @@ body {
 
 .control-group label {
     text-align: left;
+}
+
+#results {
+    text-align: center;
 }

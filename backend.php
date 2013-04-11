@@ -9,10 +9,33 @@ $LINK = NULL;
 // get db connection
 function connect() {
   global $LINK;
-  $conn = mysql_connect("localhost","root","") or die ("dbconnect failed");
-  mysql_select_db("db_final") or die ("dbconnect failed");
-  $LINK = $conn;
-  return $conn;
+
+  // Try localhost connection first
+//  $conn = mysql_connect("localhost","root","") or die ("dbconnect failed");
+//  if ($conn) {
+//    mysql_select_db("db_final") or die ("dbconnect failed");
+//    $LINK = $conn;
+//    return $conn;
+//  }
+
+  // Try server connections
+  $url=parse_url(getenv("CLEARDB_DATABASE_URL"));
+
+  $server = $url["host"];
+  $username = $url["user"];
+  $password = $url["pass"];
+  $db = substr($url["path"],1);
+  // echo "Server: " . $server;
+  // echo "Username: " . $username;
+  // echo "Password: " . $password;
+  $conn = mysql_connect($server, $username, $password);
+  if ($conn) {
+    mysql_select_db($db);
+    $LINK = $conn;
+
+    return $conn;
+  }
+
 }
 
 // unget db connection
@@ -27,7 +50,10 @@ function disconnect() {
 // String [[Arrayof Int] = array()] ->
 function create_user($name, $groups = array()){
   global $LINK;
-  mysql_query("INSERT INTO users(\"name\") VALUES (\"$name\");",$LINK);
+  $result = mysql_query("INSERT INTO users (name) VALUES (\"$name\");",$LINK);
+  if (!$result) {
+    die('Invalid query: ' . mysql_error());
+  }
   $id = get_user_id($name);
   add_user_to_groups($id,$groups);
 }
@@ -35,12 +61,14 @@ function create_user($name, $groups = array()){
 // String [[Arrayof int] = array()] [[Arrayof int] = array()] ->
 function create_group($name,$users = array(), $groups = array()) {
   global $LINK;
-  mysql_query("INSERT INTO groups(\"name\")  VALUES ($name)",$LINK);
+
+  $result = mysql_query("INSERT INTO groups (name) VALUES (\"$name\");",$LINK);
   $id = get_group_id($name);
   foreach($users as $user) {
     add_user_to_groups($user,array($id));
   }
-  foreach($group as $group) {
+
+  foreach($groups as $group) {
     add_group_to_groups($group,array($id));
   }
 }
