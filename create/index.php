@@ -75,7 +75,7 @@
                                 <div class="control-container">
                                     <label class="control-label" for="resource">Users</label>
                                     <div class="controls">
-                                        <select name="groups" multiple="multiple">
+                                        <select name="groups[]" multiple="multiple">
                                             <?php echo get_all_user_names(); ?>
                                         </select>
                                     </div>
@@ -87,7 +87,7 @@
                                 <div class="control-container">
                                     <label class="control-label" for="resource">Groups</label>
                                     <div class="controls">
-                                        <select name="groups" multiple="multiple">
+                                        <select name="groups[]" multiple="multiple">
                                             <?php echo get_all_group_names(); ?>
                                         </select>
                                     </div>
@@ -115,7 +115,7 @@
                                 <div class="control-container">
                                     <label class="control-label" for="resource">Group</label>
                                     <div class="controls">
-                                        <select name="groups">
+                                        <select name="group">
                                             <?php echo get_all_group_names(); ?>
                                         </select>
                                     </div>
