@@ -66,7 +66,7 @@ function created_group() {
 
     if ($group_users) {
         foreach ($group_users as $user) {
-            echo "<tr><td>User</td><td>"
+            echo "<tr><td>User</td><td>";
             echo urldecode($user) . "</td></tr>";
         }
     }
