@@ -94,7 +94,8 @@ function create_permission_set($group,$uri,$action,$access = true) {
 function add_user_to_groups($id,$groups) {
   global $LINK;
   foreach($groups as $group) {
-    mysql_query("INSERT INTO user_group_mapping (user,group) VALUES ($id,$group)",$LINK);
+    $gid = get_group_id($group);
+    mysql_query("INSERT INTO user_group_mapping (user_id,group_id) VALUES (\"$id\",\"$gid\")",$LINK);
   }
 }
 
