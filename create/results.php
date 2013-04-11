@@ -35,12 +35,12 @@
                     echo "<p>You created a Permission Set!</p>";
                 }
 
-                    // echo "<p>" . urldecode($_GET["user"]) . "</p>";
-                    // echo "<p>" . urldecode($_GET["what"]) . "</p>";
-                    // var_dump($_GET["groups"]);
-                    // foreach ($_GET["groups"] as $group) {
-                    //     echo "<p>" . urldecode($group);
-                    // }
+                    echo "<p>" . urldecode($_GET["user"]) . "</p>";
+                    echo "<p>" . urldecode($_GET["what"]) . "</p>";
+                    var_dump($_GET["groups"]);
+                    foreach ($_GET["groups"] as $group) {
+                        echo "<p>" . urldecode($group);
+                    }
                 ?> 
             </div>
         <div class="span2"></div>
