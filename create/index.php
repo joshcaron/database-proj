@@ -21,9 +21,9 @@
                         <!-- Options to Create -->
                         <div class="control-group">
                             <div class="control-container">
-                                <label class="control-label" for="what">Type</label>
+                                <label class="control-label" for="create_what">Type</label>
                                 <div class="controls">
-                                    <select name="what" id="what">
+                                    <select name="create_what" id="what">
                                         <option value="user">User</option>
                                         <option value="group">Group</option>
                                         <option value="resource">Resource</option>
@@ -38,7 +38,7 @@
                             <p>Create a user with the given name. Select groups that the user belongs to.</p>
                             <div class="control-group">
                                 <div class="control-container">
-                                    <label class="control-label" for="type">Name</label>
+                                    <label class="control-label" for="user_name">Name</label>
                                     <div class="controls">
                                         <input type="text" name="user_name" placeholder="Enter user name..." style="width:220px">
                                     </div>
@@ -47,7 +47,7 @@
 
                             <div class="control-group">
                                 <div class="control-container">
-                                    <label class="control-label" for="resource">Groups</label>
+                                    <label class="control-label" for="user_groups[]">Groups</label>
                                     <div class="controls">
                                         <select name="user_groups[]" multiple="multiple">
                                             <?php echo get_all_group_names(); ?>
@@ -63,7 +63,7 @@
                             <!-- Name of group -->
                             <div class="control-group">
                                 <div class="control-container">
-                                    <label class="control-label" for="type">Name</label>
+                                    <label class="control-label" for="group_name">Name</label>
                                     <div class="controls">
                                         <input name="group_name" type="text" placeholder="Enter group name..." style="width:220px;">
                                     </div>
@@ -73,7 +73,7 @@
                             <!-- Users contained in this group -->
                             <div class="control-group">
                                 <div class="control-container">
-                                    <label class="control-label" for="resource">Users</label>
+                                    <label class="control-label" for="group_users[]">Users</label>
                                     <div class="controls">
                                         <select name="group_users[]" multiple="multiple">
                                             <?php echo get_all_user_names(); ?>
@@ -85,7 +85,7 @@
                             <!-- Groups contained in this group -->
                             <div class="control-group">
                                 <div class="control-container">
-                                    <label class="control-label" for="resource">Groups</label>
+                                    <label class="control-label" for="group_groups[]">Groups</label>
                                     <div class="controls">
                                         <select name="group_groups[]" multiple="multiple">
                                             <?php echo get_all_group_names(); ?>
@@ -100,7 +100,7 @@
                         <div id="resource_options" style="display:none;">
                             <div class="control-group">
                                 <div class="control-container">
-                                    <label class="control-label" for="type">Name</label>
+                                    <label class="control-label" for="resource_name">Name</label>
                                     <div class="controls">
                                         <input name="resource_name" type="text" placeholder="Enter resource name..." style="width:220px;">
                                     </div>
@@ -113,7 +113,7 @@
                             <!-- Select Group to give permission -->
                             <div class="control-group">
                                 <div class="control-container">
-                                    <label class="control-label" for="resource">Group</label>
+                                    <label class="control-label" for="group_select">Group</label>
                                     <div class="controls">
                                         <select name="group_select">
                                             <?php echo get_all_group_names(); ?>
@@ -124,7 +124,7 @@
                             <!-- Select Action type -->
                             <div class="control-group">
                                 <div class="control-container">
-                                    <label class="control-label" for="type">Permission to Give</label>
+                                    <label class="control-label" for="action_type">Permission to Give</label>
                                     <div class="controls">
                                         <select name="action_type">
                                             <?php echo get_all_action_names(); ?>
