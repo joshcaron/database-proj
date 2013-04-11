@@ -24,7 +24,7 @@ function resource_selected() {
 
 function manage_selections() {
     $("#what").change(function() {
-        var sel = $('select[name="what"] option:selected').val();
+        var sel = $('select[name="create_what"] option:selected').val();
         if (sel == "user") {
             user_selected();
         }
