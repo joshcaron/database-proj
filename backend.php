@@ -25,7 +25,9 @@ function connect() {
   $username = $url["user"];
   $password = $url["pass"];
   $db = substr($url["path"],1);
-
+  echo "Server: " . $server;
+  echo "Username: " . $username;
+  echo "Password: " . $password;
   $conn = mysql_connect($server, $username, $password);
   if ($conn) {
     mysql_select_db($db);
