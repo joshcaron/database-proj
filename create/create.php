@@ -101,7 +101,7 @@ function created_permission_set() {
 }
 
 function create_table() {
-    echo "<table><tbody>"
+    echo "<table><tbody>";
     $type = created_what();
     // Create User
     if ($type == "user") {
