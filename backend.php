@@ -55,6 +55,8 @@ function create_user($name, $groups = array()){
     die('Invalid query: ' . mysql_error());
   }
   $id = get_user_id($name);
+  var_dump($id);
+  var_dump($groups);
   add_user_to_groups($id,$groups);
 }
 
