@@ -18,7 +18,7 @@
 
                 <?php
 
-                // $type = urldecode($_GET["what"]);
+                $type = urldecode($_GET["create_what"]);
                 echo "<p>Type: " . $type . "</p>";
                 if ($type == "user") {
                     $user_name = urldecode($_GET["user_name"]);
