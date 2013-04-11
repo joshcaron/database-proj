@@ -11,12 +11,12 @@ function connect() {
   global $LINK;
 
   // Try localhost connection first
-  $conn = mysql_connect("localhost","root","") or die ("dbconnect failed");
-  if ($conn) {
-    mysql_select_db("db_final") or die ("dbconnect failed");
-    $LINK = $conn;
-    return $conn;
-  }
+//  $conn = mysql_connect("localhost","root","") or die ("dbconnect failed");
+//  if ($conn) {
+//    mysql_select_db("db_final") or die ("dbconnect failed");
+//    $LINK = $conn;
+//    return $conn;
+//  }
 
   // Try server connections
   $url=parse_url(getenv("CLEARDB_DATABASE_URL"));
