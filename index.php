@@ -15,10 +15,10 @@
                 <?php 
                 include_once "backend.php";
 
-                connect();
+               $connection =  connect();
 
-                if (!$LINK) {
-                    echo "<div class=\"error\"><p>Could not connect to database. Proceed at own risk.</p></div>";
+                if (!$connection) {
+                    echo "<p style=\"text-align:center;\" class=\"text-error\">Could not connect to database. Proceed at own risk.</p>";
                 }
 
                 ?>
