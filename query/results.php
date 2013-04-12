@@ -21,6 +21,11 @@
                 $uid = get_user_id($user);
                 $allow = does_user_has_access($uid, $resource, $action);
                 var_dump($allow);
+                if ($allow) {
+                    $allow = "True";
+                } else {
+                    $allow = "False";
+                }
                 echo "<p>User: " . $user . "</p>";
                 echo "<p>Resource: " . $resource . "</p>";
                 echo "<p>Action: " . $action . "</p>";
