@@ -19,6 +19,7 @@
                     echo "<p>You created a " . $type . "!</p>";
                     create_table();
                 ?>
+                <a href="..">Back</a>
             </div>
         <div class="span2"></div>
         </div>
