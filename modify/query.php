@@ -36,12 +36,12 @@ function get_all_resource_names() {
 }
 
 // $_POST -> String
-function created_what() {
-    $type = urldecode($_POST["create_what"]);
+function modify_what() {
+    $type = urldecode($_POST["modify_what"]);
     return $type;
 }
 
-function created_user() {
+function modify_user() {
     $user_name = urldecode($_POST["user_name"]);
     $user_groups = $_POST["user_groups"];
     $group_ids = array();
@@ -61,7 +61,7 @@ function created_user() {
     echo "</tbody></table>";
 }
 
-function created_group() {
+function modify_group() {
     $group_name = $_POST["group_name"];
     $group_users = $_POST["group_users"];
     $group_groups = $_POST["group_groups"];
@@ -100,14 +100,14 @@ function created_group() {
     echo "</tbody></table>";
 }
 
-function created_resource() {
+function modify_resource() {
     $resource_name = $_POST["resource_name"];
     create_resource($resource_name);
     echo "<tr><td>Name</td><td>" . $resource_name . "</td></tr>";
     echo "</tbody></table>";
 }
 
-function created_permission_set() {
+function modify_permission_set() {
     $group_select = $_POST["group_select"];
     $id = get_group_id($group_select);
     $resource_select = $_POST["resource_select"];
@@ -122,22 +122,22 @@ function created_permission_set() {
 
 function create_table() {
     echo "<table><tbody>";
-    $type = created_what();
+    $type = modify_what();
     // Create User
     if ($type == "user") {
-        created_user();
+        modify_user();
     } 
     // Create Group
     else if ($type == "group") {
-        created_group();
+        modify_group();
     } 
     // Create Resource
     else if ($type == "resource") {
-        return created_resource();
+        return modify_resource();
     }
     // Create Permission Set
     else if ($type == "permission") {
-        return created_permission_set();
+        return modify_permission_set();
     } 
     // Unrecognized creation
     else {
