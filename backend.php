@@ -200,7 +200,9 @@ function get_groups_groups($ids) {
 // Int -> [Arrayof Int]
 function get_user_groups($id) {
   global $LINK;
-  $groups_id = mysql_query("SELECT group_id FROM user_group_mapping WHERE id = \"$id\"",$LINK);
+  $query = "SELECT group_id FROM user_group_mapping WHERE id = \"$id\"";
+  echo "<br />QUERY: " . $query;
+  $groups_id = mysql_query($query,$LINK);
   return get_groups_groups(single_results_to_array($groups_id));
 }
 
