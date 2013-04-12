@@ -136,7 +136,12 @@ function delete_user_from_group($contained,$container) {
 // Int String String -> Boolean
 function does_user_has_access($uid,$uri,$action){
   $user_groups = get_user_groups($uid);
-  $permission_set_groups = get_permission_set_groups(get_permission_sets($uri,$action));
+  $permission_sets = get_permission_sets($uri, $action);
+  echo "Getting permission sets: ";
+  var_dump($permission_sets);
+  echo "<br />Getting permission sets groups: ";
+  $permission_set_groups = get_permission_set_groups($permission_sets);
+  var_dump($permission_set_groups);
   foreach($user_groups as $id) {
     if(in_array($id,$permission_set_groups)) {
       return true;
