@@ -193,7 +193,9 @@ function get_groups_groups($ids) {
 function get_group_name($id) {
   global $LINK;
   $query = "SELECT name FROM groups WHERE id = $id";
+  echo "QUERY: " . $query;
   $result = mysql_query($query);
+  echo "<br />RESULT: " . $result;
   return $result;
 }
 
