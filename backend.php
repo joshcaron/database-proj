@@ -102,7 +102,7 @@ function add_user_to_groups($id,$groups) {
 function add_group_to_groups($id,$groups) {
   global $LINK;
   foreach($groups as $group) {
-    mysql_query("INSERT INTO group_group_mapping (contained,container) VALUES (\"$group\",\"$id\")",$LINK);
+    mysql_query("INSERT INTO group_group_mapping (contained_id,container_id) VALUES (\"$group\",\"$id\")",$LINK);
   }
 }
 
