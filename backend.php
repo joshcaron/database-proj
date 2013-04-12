@@ -195,7 +195,7 @@ function get_group_name($id) {
   $query = "SELECT name FROM groups WHERE id = $id";
   echo "QUERY: " . $query;
   $result = mysql_query($query);
-  $result = mysql_fetch_array($result)[0];
+  $result = mysql_result($result, 0);
   echo "<br />RESULT: " . $result;
   return $result;
 }
