@@ -20,8 +20,6 @@
                 $action = urldecode($_POST["action"]);
                 $uid = get_user_id($user);
                 $allow = does_user_has_access($uid, $resource, $action);
-                echo "<br />";
-                var_dump($allow);
                 if ($allow) {
                     $allow = "True";
                 } else {
