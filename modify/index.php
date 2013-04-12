@@ -32,7 +32,6 @@
 
                     <!-- User Modify Options -->
                     <div id="user_options">
-                        <p>Create a user with the given name. Select groups that the user belongs to.</p>
                         <div class="control-group">
                             <div class="control-container">
                                 <label class="control-label" for="user_name">Name</label>
@@ -47,7 +46,6 @@
 
                     <!-- Group Modify Options -->
                     <div id="group_options" style="display:none;">
-                        <p>Create a group with the given name. Select users and groups that this group contains.</p>
                         <div class="control-group">
                             <div class="control-container">
                                 <label class="control-label" for="group_name">Name</label>
