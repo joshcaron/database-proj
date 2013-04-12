@@ -83,7 +83,7 @@ function create_resource($uri) {
 function create_permission_set($group,$uri,$action,$access = true) {
   global $LINK;
   mysql_query("INSERT INTO permission_sets (group_id,resource_uri,action_name,is_allowed) 
-    VALUES ($group,\"$uir\",\"$action\",$access)",$LINK);
+    VALUES (\"$group\",\"$uir\",\"$action\",\"$access\")",$LINK);
 }
 
 /*
@@ -102,32 +102,32 @@ function add_user_to_groups($id,$groups) {
 function add_group_to_groups($id,$groups) {
   global $LINK;
   foreach($groups as $group) {
-    mysql_query("INSERT INTO group_group_mapping (contained,container) VALUES ($group,$id)",$LINK);
+    mysql_query("INSERT INTO group_group_mapping (contained,container) VALUES (\"$group\",\"$id\")",$LINK);
   }
 }
 
 // Int ->
 function delete_user($id) {
   global $LINK;
-  mysql_query("DELETE FROM users WHERE id = $id",$LINK);
+  mysql_query("DELETE FROM users WHERE id = \"$id\"",$LINK);
 }
 function delete_group($id) {
   global $LINK;
-  mysql_query("DELETE FROM groups WHERE id = $id",$LINK);
+  mysql_query("DELETE FROM groups WHERE id = \"$id\"",$LINK);
 }
 function delete_resource($id) {
   global $LINK;
-  mysql_query("DELETE FROM resources WHERE id = $id",$LINK);
+  mysql_query("DELETE FROM resources WHERE id = \"$id\"",$LINK);
 }
 
 // Int Int ->
 function delete_group_from_group($contained,$container) {
   global $LINK;
-  mysql_query("DELETE FROM group_group_mapping WHERE container = $container AND contained = $contained");
+  mysql_query("DELETE FROM group_group_mapping WHERE container = \"$container\" AND contained = \"$contained\"");
 }
 function delete_user_from_group($contained,$container) {
   global $LINK;
-  mysql_query("DELETE FROM user_group_mapping WHERE container = $container AND contained = $contained");
+  mysql_query("DELETE FROM user_group_mapping WHERE container = \"$container\" AND contained = \"$contained\"");
 }
 /*
  * querying
