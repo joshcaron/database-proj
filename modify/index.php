@@ -1,6 +1,6 @@
 <html>
 <head>
-    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="../jquery.js"></script>
     <script type="text/javascript" src="query.js"></script>
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../main.css">
