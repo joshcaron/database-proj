@@ -151,7 +151,7 @@ function get_permission_set_groups($ids){
   global $LINK;
   echo "IDS: ";
   var_dump($ids);
-  $query = "SELECT group_id FROM permission_sets WHERE id in (" . implode("\", \"",$ids) . ")";
+  $query = "SELECT group_id FROM permission_sets WHERE group_id in (" . implode("\", \"",$ids) . ")";
   echo "<br /><br />QUERY: " . $query;
   $results =  single_results_to_array(mysql_query($query,$LINK));
   if (!$results) {
