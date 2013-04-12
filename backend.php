@@ -80,7 +80,7 @@ function create_resource($uri) {
 }
 
 // Int String String [Boolean = true] ->
-function create_permission_set($group,$uri,$action,$access = true) {
+function create_permission_set($group,$uri,$action,$access = 1) {
   global $LINK;
   mysql_query("INSERT INTO permission_sets (is_allowed, group_id,resource_uri,action_name) 
     VALUES (\"$access\",\"$group\",\"$uir\",\"$action\")",$LINK);
