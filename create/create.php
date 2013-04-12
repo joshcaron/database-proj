@@ -50,7 +50,7 @@ function created_user() {
     foreach($user_groups as $group) {
         $id = get_group_id($group);
         echo $id;
-        array_push($group_id, $id);
+        array_push($group_ids, $id);
     }
     echo "<br />Array after: ";
     var_dump($group_ids);
