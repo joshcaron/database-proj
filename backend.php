@@ -117,6 +117,10 @@ function delete_group($id) {
   global $LINK;
   mysql_query("DELETE FROM groups WHERE id = $id",$LINK);
 }
+function delete_resource($id) {
+  global $LINK;
+  mysql_query("DELETE FROM resources WHERE id = $id",$LINK);
+}
 
 // Int Int ->
 function delete_group_from_group($contained,$container) {
