@@ -42,20 +42,20 @@ function modify_what() {
 }
 
 function modify_user() {
-    $user_name = urldecode($_POST["user_name"]);
-    $user_groups = $_POST["user_groups"];
-    $group_ids = array();
-    foreach($user_groups as $group) {
-        $id = get_group_id($group);
-        array_push($group_ids, $id);
+    $user_name = urldecode($_POST["user"]);
+    $user_id = get_user_id($user_name);
+    $user_groups = get_user_groups($user_id);
+    $group_names = array();
+    foreach($user_groups as $id) {
+        $name = get_group_name($id);
+        array_push($group_names, $name);
     }
-    create_user($user_name, $group_ids);
     echo "<tr><td>Name</td><td>" . $user_name . "</td></tr>";
 
     if ($user_groups) {
-        foreach ($user_groups as $group) {
+        foreach ($group_names as $group) {
             echo "<tr><td>Group</td><td>";
-            echo urldecode($group) . "</td</tr>";
+            echo $group . "</td</tr>";
         }
     }
     echo "</tbody></table>";

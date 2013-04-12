@@ -189,6 +189,14 @@ function get_groups_groups($ids) {
   return $results;
 }
 
+// Int -> String
+function get_group_name($id) {
+  global $LINK;
+  $query = "SELECT name FROM groups WHERE id = $id";
+  $result = mysql_query($query);
+  return $result;
+}
+
 // Int -> [Arrayof Int]
 function get_user_groups($id) {
   global $LINK;
