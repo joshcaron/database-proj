@@ -31,6 +31,7 @@
                 echo "<p>Allow: " . $allow . "</p>";
 
                 ?>
+                <a href="..">Back</a>
             </div>
         <div class="span2"></div>
         </div>
