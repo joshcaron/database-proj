@@ -43,6 +43,7 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
 
                     <!-- Group Modify Options -->
                     <div id="group_options" style="display:none;">
