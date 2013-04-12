@@ -170,7 +170,7 @@ function get_permission_set_groups($ids){
 // String String -> [Arrayof Ints]
 function get_permission_sets($uri,$action){
   global $LINK;
-  return single_results_to_array(mysql_query("SELECT group_id FROM permission_sets WHERE resource_uri = \"$url\" AND action_name = \"$action\"",$LINK));
+  return single_results_to_array(mysql_query("SELECT group_id FROM permission_sets WHERE resource_uri = \"$uri\" AND action_name = \"$action\"",$LINK));
 }
 
 // Int -> Arrayof Int
