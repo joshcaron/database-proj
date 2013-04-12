@@ -153,7 +153,9 @@ function does_user_has_access($uid,$uri,$action){
 // [Array Ints] -> [Arrayof Ints]
 function get_permission_set_groups($ids){
   global $LINK;
-  $results =  single_results_to_array(mysql_query("SELECT group_id FROM permission_sets WHERE id in (\"" . implode("\", \"",$ids) . "\")",$LINK));
+  $query = "SELECT group_id FROM permission_sets WHERE id in (\"" . implode("\", \"",$ids) . "\")";
+  echo $query;
+  $results =  single_results_to_array(mysql_query($query,$LINK));
   echo "<br />Query results: ";
   var_dump($results);
   if (!$results) {
