@@ -65,7 +65,22 @@ function created_group() {
     $group_name = $_POST["group_name"];
     $group_users = $_POST["group_users"];
     $group_groups = $_POST["group_groups"];
-    create_group($group_name, $group_users, $group_groups);
+
+    $user_ids = array();
+    foreach($group_users as $user) {
+        $id = get_user_id($user);
+        array_push($user_ids, $id);
+    }
+
+    $group_ids = array();
+    foreach($group_groups as $group) {
+        $id = get_group_id($group);
+        array_push($group_ids, $id);
+    }
+
+
+    create_group($group_name, $user_ids, $group_ids);
+
 
     echo "<tr><td>Name</td><td>" . $group_name . "</td></tr>";
 
@@ -95,9 +110,10 @@ function created_resource() {
 
 function created_permission_set() {
     $group_select = $_POST["group_select"];
+    $id = get_group_id($group_select);
     $resource_select = $_POST["resource_select"];
     $action_type = $_POST["action_type"];
-    create_permission_set($group_select, $resource_select, $action_type);
+    create_permission_set($id, $resource_select, $action_type);
     echo "<tr><td>Group</td><td>" . urldecode($_POST["group_select"]) . "</td></tr>";
     echo "<tr><td>Resource</td><td>" . urldecode($_POST["resource_select"]) . "</td></tr>";
     echo "<tr><td>Action</td><td>" . urldecode($_POST["action_type"]) . "</td></tr>";
