@@ -78,6 +78,8 @@ function created_group() {
         array_push($group_ids, $id);
     }
 
+    var_dump($group_ids);
+
 
     create_group($group_name, $user_ids, $group_ids);
 
