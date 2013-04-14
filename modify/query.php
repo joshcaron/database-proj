@@ -50,8 +50,9 @@ function modify_user() {
         $name = get_group_name($id);
         array_push($group_names, $name);
     }
-    echo "<tr><td>Name</td><td>" . $user_name . "</td></tr>";
+    echo "<h3>" . $user_name . "</h3>";
 
+    echo "<table><tbody>";
     if ($user_groups) {
         foreach ($group_names as $group) {
             echo "<tr><td>Group</td><td>";
@@ -86,8 +87,9 @@ function modify_group() {
     // Remove this group from the list of groups
     $group_names = array_diff($group_names, array($group_name));
 
-    echo "<tr><td>Name</td><td>" . $group_name . "</td></tr>";
+    echo "<h3>" . $group_name . "</h3>";
 
+    echo "<table><tbody>";
     if ($user_ids) {
         foreach ($user_names as $user) {
             echo "<tr><td>User</td><td>";
@@ -109,6 +111,7 @@ function modify_group() {
 
 
 function modify_resource() {
+    echo "<table><tbody>";
     $resource_name = urldecode($_POST["resource"]);
     echo "<tr><td>Name</td><td>" . $resource_name . "</td></tr>";
     echo "</tbody></table>";
@@ -128,7 +131,6 @@ function modify_permission_set() {
 }
 
 function create_table() {
-    echo "<table><tbody>";
     $type = modify_what();
     // Create User
     if ($type == "user") {

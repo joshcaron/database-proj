@@ -17,8 +17,6 @@
                 <div id="results">
                     <h1 id="title">Modify Things</h1>
                     <?php 
-                        $type = modify_what();
-                        echo "<p>Modifying a " . $type . "!</p>";
                         create_table();
                     ?>
                     <a href="..">Back</a>
@@ -27,8 +25,5 @@
         <div class="span2"></div>
         </div>
     </div>
-
-
-    <div id="dialog-confirm"><p>Are you sure you want to delete this? It cannot be undone.</p></div>
 </body>
 </html>
