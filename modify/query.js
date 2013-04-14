@@ -38,6 +38,13 @@ function delete_group(group_name) {
     return false;
 }
 
+function delete_user(user_name) {
+    if (confirm("Are you sure you want to delete " + user_name + "?")) {
+        $.post("delete.php", { user: user_name });
+    }
+    return false;
+}
+
 // function delete_group() {
 //     $("tr").find("btn").each(function() {
 //         $(this).click(function() {

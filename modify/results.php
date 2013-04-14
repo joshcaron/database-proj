@@ -14,13 +14,15 @@
         <div class="row-fluid">
             <div class="span2"></div>
             <div class="span8" id="inner_container">
-                <h1 id="title">Modify Things</h1>
-                <?php 
-                    $type = modify_what();
-                    echo "<p>Modifying a " . $type . "!</p>";
-                    create_table();
-                ?>
-                <a href="..">Back</a>
+                <div id="results">
+                    <h1 id="title">Modify Things</h1>
+                    <?php 
+                        $type = modify_what();
+                        echo "<p>Modifying a " . $type . "!</p>";
+                        create_table();
+                    ?>
+                    <a href="..">Back</a>
+                </div>
             </div>
         <div class="span2"></div>
         </div>
