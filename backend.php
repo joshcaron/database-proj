@@ -133,6 +133,11 @@ function delete_user_from_group($contained,$container) {
  * querying
  */
 
+// Int -> [Arrayof Int]
+function users_in_group($id) {
+  return single_results_to_array(mysql_query("SELECT user_id FROM user_groups_mapping WHERE group_id = $id"));
+}
+
 // Int String String -> Boolean
 function does_user_has_access($uid,$uri,$action){
   $user_groups = get_user_groups($uid);
