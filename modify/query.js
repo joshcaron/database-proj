@@ -32,7 +32,7 @@ function manage_selections() {
 }
 
 function delete_group() {
-    $(".group_del").each(function() {
+    $("tr").find(".group_del").each(function() {
         $(this).click(function() {
             alert($(this).attr("id"));
         })
