@@ -139,7 +139,7 @@ function modify_resource() {
 //     echo "<tr><td>Action</td><td>" . urldecode($_POST["action_type"]) . "</td></tr>";
 //     echo "</tbody></table>";
 // }
-function create_submit() {
+function create_submit() {g
     echo "<input type=\"submit\" value=\"Delete Selected\" class=\"btn\">";
 }
 
