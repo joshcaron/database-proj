@@ -30,7 +30,17 @@
                         }
 
                         if ($type == "group") {
-
+                            $id = get_group_id($name);
+                            $groups = get_group_groups($id);
+                            foreach ($groups as $group) {
+                                delete_group_from_group($id, $group);
+                            }
+                            $users = users_in_groups($id);
+                            foreach ($users as $user) {
+                                delete_user_from_group($user, $id);
+                            }
+                            delete_group($id);
+                            echo "Deleted " . $name;
                         }
 
                         if ($type == "resource") {
