@@ -76,6 +76,8 @@ function modify_group() {
         $name = get_group_name($group);
         array_push($group_names, $name);
     }
+    // Remove this group from the list of groups
+    $group_names = array_diff($group_names, array($group_name));
 
     echo "<tr><td>Name</td><td>" . $group_name . "</td></tr>";
 
@@ -87,9 +89,9 @@ function modify_group() {
     }
     
     if ($group_ids) {
-        foreach ($group_names as $group) {
+        foreach ($group_names as $g) {
             echo "<tr><td>Group</td><td>";
-            echo urldecode($group) . "</td></tr>";
+            echo urldecode($g) . "</td></tr>";
         }
     }
 
