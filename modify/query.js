@@ -38,25 +38,20 @@ function delete_group() {
             msg += $(this).attr("id");
             msg += "?";
             var row = $(this).parent().parent();
-            $('<div></div>').appendTo('body')
-                    .html('<div><h6>Are you sure?</h6></div>')
-                    .dialog({
-                        modal: true, title: 'Delete message', zIndex: 10000, autoOpen: true,
-                        width: 'auto', resizable: false,
-                        buttons: {
-                            Yes: function () {
-                                row.hide();
-
-                                $(this).dialog("close");
-                            },
-                            No: function () {
-                                $(this).dialog("close");
-                            }
-                        },
-                        close: function (event, ui) {
-                            $(this).remove();
-                        }
-                    });
+            $( "#dialog-confirm" ).dialog({
+              resizable: false,
+              height:140,
+              modal: true,
+              buttons: {
+                "Delete": function() {
+                  row.hide();
+                  $( this ).dialog( "close" );
+                },
+                Cancel: function() {
+                  $( this ).dialog( "close" );
+                }
+              }
+            });
         })
     });
 }

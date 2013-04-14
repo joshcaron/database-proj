@@ -26,5 +26,8 @@
         <div class="span2"></div>
         </div>
     </div>
+
+
+    <div id="dialog-confirm"><p>Are you sure you want to delete this? It cannot be undone.</p></div>
 </body>
 </html>
