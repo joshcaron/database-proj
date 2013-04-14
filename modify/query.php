@@ -70,14 +70,16 @@ function modify_group() {
         $name = get_user_name($uid);
         array_push($user_names, $name);
     }
-
+    echo "USERS: ";
+    var_dump($user_names);
     $group_ids = get_group_groups($gid);
     $group_names = array();
     foreach($group_ids as $group) {
         $name = get_group_id($group);
         array_push($group_names, $name);
     }
-
+    echo "GROUPS: ";
+    var_dump($group_names);
 
     echo "<tr><td>Name</td><td>" . $group_name . "</td></tr>";
 
