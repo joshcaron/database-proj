@@ -55,7 +55,8 @@ function modify_user() {
     if ($user_groups) {
         foreach ($group_names as $group) {
             echo "<tr><td>Group</td><td>";
-            echo $group . "</td</tr>";
+            echo $group;
+            echo "</td><td><button class=\"btn btn-danger\"></td></tr>";
         }
     }
     echo "</tbody></table>";
@@ -89,19 +90,22 @@ function modify_group() {
     if ($user_ids) {
         foreach ($user_names as $user) {
             echo "<tr><td>User</td><td>";
-            echo urldecode($user) . "</td></tr>";
+            echo urldecode($user);
+            echo "</td><td><button class=\"btn btn-danger\"></td></tr>";
         }
     }
     
     if ($group_ids) {
         foreach ($group_names as $g) {
             echo "<tr><td>Group</td><td>";
-            echo urldecode($g) . "</td></tr>";
+            echo urldecode($g);
+            echo "</td><td><button class=\"btn btn-danger\"></td></tr>";
         }
     }
 
     echo "</tbody></table>";
 }
+
 
 function modify_resource() {
     $resource_name = urldecode($_POST["resource"]);
