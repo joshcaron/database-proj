@@ -61,8 +61,9 @@ function modify_user() {
             echo "</td></tr>";
             // echo "</td><td><button onClick='delete_group(\"$group\")' class=\"btn btn-danger\"><i class=\"icon-remove\" /></td></tr>";
         }
+        echo "</tbody></table>";
+        create_submit();
     }
-    echo "</tbody></table>";
 }
 
 function create_checkbox($name) {
@@ -116,8 +117,10 @@ function modify_group() {
             // echo "</td><td><button onClick='delete_group(\"$g\")' class=\"btn btn-danger\"><i class=\"icon-remove\" /></td></tr>";
         }
     }
-
     echo "</tbody></table>";
+    if ($user_ids or $group_ids) {
+        create_submit();
+    }
 }
 
 
@@ -126,16 +129,18 @@ function modify_resource() {
     echo "<h3>" . $resource_name . "</h3>";
 }
 
-function modify_permission_set() {
-    $group_select = $_POST["group_select"];
-    $id = get_group_id($group_select);
-    $resource_select = $_POST["resource_select"];
-    $action_type = $_POST["action_type"];
-    echo "<tr><td>Group</td><td>" . urldecode($_POST["group_select"]) . "</td></tr>";
-    echo "<tr><td>Resource</td><td>" . urldecode($_POST["resource_select"]) . "</td></tr>";
-    echo "<tr><td>Action</td><td>" . urldecode($_POST["action_type"]) . "</td></tr>";
-    echo "</tbody></table>";
-
+// function modify_permission_set() {
+//     $group_select = $_POST["group_select"];
+//     $id = get_group_id($group_select);
+//     $resource_select = $_POST["resource_select"];
+//     $action_type = $_POST["action_type"];
+//     echo "<tr><td>Group</td><td>" . urldecode($_POST["group_select"]) . "</td></tr>";
+//     echo "<tr><td>Resource</td><td>" . urldecode($_POST["resource_select"]) . "</td></tr>";
+//     echo "<tr><td>Action</td><td>" . urldecode($_POST["action_type"]) . "</td></tr>";
+//     echo "</tbody></table>";
+// }
+function create_submit() {
+    echo "<input type=\"submit\" value=\"Delete Selected\" class=\"btn\">";
 }
 
 function create_table() {
