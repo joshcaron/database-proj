@@ -66,6 +66,11 @@ function created_group() {
     $group_users = $_POST["group_users"];
     $group_groups = $_POST["group_groups"];
 
+    echo "GROUP USERS: <br />";
+    var_dump($group_users);
+    echo "<br />GROUP GROUPS: <br />";
+    var_dump($group_groups);
+
     $user_ids = array();
     if ($group_users) {
         foreach($group_users as $user) {
