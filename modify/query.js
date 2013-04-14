@@ -35,10 +35,12 @@ function delete_group() {
     $("tr").find(".group_del").each(function() {
         $(this).click(function() {
             alert($(this).attr("id"));
+            $(this).parent().parent().slideUp();
         })
     });
 }
 
 $(document).ready(function() {
     manage_selections();
+    delete_group();
 })
