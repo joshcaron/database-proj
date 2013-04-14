@@ -56,7 +56,7 @@ function modify_user() {
         foreach ($group_names as $group) {
             echo "<tr><td>Group</td><td>";
             echo $group;
-            echo "</td><td><button class=\"btn btn-danger\"></td></tr>";
+            echo "</td><td><button id=\"$group\" class=\"btn btn-danger group_del\"></td></tr>";
         }
     }
     echo "</tbody></table>";
@@ -91,7 +91,7 @@ function modify_group() {
         foreach ($user_names as $user) {
             echo "<tr><td>User</td><td>";
             echo urldecode($user);
-            echo "</td><td><button class=\"btn btn-danger\"></td></tr>";
+            echo "</td><td><button class=\"btn btn-danger user_del\"></td></tr>";
         }
     }
     
@@ -99,7 +99,7 @@ function modify_group() {
         foreach ($group_names as $g) {
             echo "<tr><td>Group</td><td>";
             echo urldecode($g);
-            echo "</td><td><button class=\"btn btn-danger\"></td></tr>";
+            echo "</td><td><button id=\"$g\"class=\"btn btn-danger group_del\"></td></tr>";
         }
     }
 

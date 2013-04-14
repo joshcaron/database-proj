@@ -29,8 +29,14 @@ function manage_selections() {
             resource_selected();
         }
     })
+}
 
-
+function delete_group() {
+    $(".group_del").each(function() {
+        $(this).click(function() {
+            alert($(this).attr("id"));
+        })
+    });
 }
 
 $(document).ready(function() {
