@@ -81,14 +81,14 @@ function modify_group() {
 
     echo "<tr><td>Name</td><td>" . $group_name . "</td></tr>";
 
-    if ($user_names) {
+    if ($user_ids) {
         foreach ($user_names as $user) {
             echo "<tr><td>User</td><td>";
             echo urldecode($user) . "</td></tr>";
         }
     }
     
-    if ($group_names) {
+    if ($group_ids) {
         foreach ($group_names as $group) {
             echo "<tr><td>Group</td><td>";
             echo urldecode($group) . "</td></tr>";
