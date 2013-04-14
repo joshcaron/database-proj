@@ -132,7 +132,7 @@ function delete_resource($id) {
 // Int Int ->
 function delete_group_from_group($contained,$container) {
   global $LINK;
-  $result = mysql_query("DELETE FROM group_group_mapping WHERE container = \"$container\" AND contained = \"$contained\"");
+  $result = mysql_query("DELETE FROM group_group_mapping WHERE container_id = \"$container\" AND contained_id = \"$contained\"");
   if (!$result) {
     echo mysql_error();
   }
