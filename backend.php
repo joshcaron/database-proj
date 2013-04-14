@@ -123,7 +123,7 @@ function delete_group($id) {
 }
 function delete_resource($id) {
   global $LINK;
-  $result = mysql_query("DELETE FROM resources WHERE id = \"$id\"",$LINK);
+  $result = mysql_query("DELETE FROM resources WHERE uri = \"$id\"",$LINK);
   if (!$result) {
     echo mysql_error();
   }
