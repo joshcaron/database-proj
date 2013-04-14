@@ -20,7 +20,7 @@
                         $type = $_POST["type"];
                         $name = $_POST["name"];
                         if ($type == "user") {
-                            $id = get_user_id();
+                            $id = get_user_id($name);
                             $groups = get_user_groups($id);
                             foreach ($groups as $group) {
                                 delete_user_from_group($id, $group);
