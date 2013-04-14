@@ -183,10 +183,11 @@ function get_groups_groups($ids) {
   $todos = $ids;
   $acc = array();
   $results = $todos;
+  echo "Getting contained groups..";
   while(!empty($todos)) {
     foreach($todos as $id) {
       $query = "SELECT contained_id FROM group_group_mapping WHERE container_id = $id";
-      echo $query;
+      echo "<br />" . $query;
       $news = single_results_to_array(mysql_query($query, $LINK));
       foreach($news as $new) {
         if(!in_array($new,$results)){
@@ -205,6 +206,7 @@ function get_groups_groups($ids) {
 function get_group_name($id) {
   global $LINK;
   $query = "SELECT name FROM groups WHERE id = $id";
+  echo "Getting group name...<br />" . $query;
   $result = mysql_query($query);
   $result = mysql_result($result, 0);
   return $result;
