@@ -135,7 +135,12 @@ function delete_user_from_group($contained,$container) {
 
 // Int -> [Arrayof Int]
 function users_in_group($id) {
-  return single_results_to_array(mysql_query("SELECT user_id FROM user_groups_mapping WHERE group_id = $id"));
+  $query = "SELECT user_id FROM user_groups_mapping WHERE group_id = $id";
+  $result = mysql_query($query);
+  if (!$result) {
+    echo "ERROR: " . mysql_error();
+  }
+  return single_results_to_array($result);
 }
 
 // Int String String -> Boolean
