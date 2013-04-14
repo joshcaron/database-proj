@@ -100,16 +100,20 @@ function modify_group() {
     if ($user_ids) {
         foreach ($user_names as $user) {
             echo "<tr><td>User</td><td>";
-            echo urldecode($user);
-            echo "</td><td><button onClick='delete_user(\"$user\")' class=\"btn btn-danger\"><i class=\"icon-remove\" /></td></tr>";
+            echo urldecode($user) . "</td><td>";
+            echo create_checkbox($user);
+            echo "</td></tr>";
+            // echo "</td><td><button onClick='delete_user(\"$user\")' class=\"btn btn-danger\"><i class=\"icon-remove\" /></td></tr>";
         }
     }
     
     if ($group_ids) {
         foreach ($group_names as $g) {
             echo "<tr><td>Group</td><td>";
-            echo urldecode($g);
-            echo "</td><td><button onClick='delete_group(\"$g\")' class=\"btn btn-danger\"><i class=\"icon-remove\" /></td></tr>";
+            echo urldecode($g) . "</td><td>";
+            echo create_checkbox($g);
+            echo "</td></tr>";
+            // echo "</td><td><button onClick='delete_group(\"$g\")' class=\"btn btn-danger\"><i class=\"icon-remove\" /></td></tr>";
         }
     }
 
@@ -118,10 +122,8 @@ function modify_group() {
 
 
 function modify_resource() {
-    echo "<table><tbody>";
     $resource_name = urldecode($_POST["resource"]);
-    echo "<tr><td>Name</td><td>" . $resource_name . "</td></tr>";
-    echo "</tbody></table>";
+    echo "<h3>" . $resource_name . "</h3>";
 }
 
 function modify_permission_set() {
