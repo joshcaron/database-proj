@@ -21,6 +21,31 @@
                             create_table();
                         ?>
                     </form>
+                    <form action="remove.php" method="post">
+                        <?php
+                            $type = modify_what();
+                            if ($type == "user") {
+                                $name = $_POST["user"];
+                                create_input($type, $name);
+                            }
+                            if ($type == "group") {
+                                $name == $_POST["group"];
+                                create_input($type, $name);
+                            }
+                            if ($type == "resource") {
+                                $name = $_POST["resource"];
+                                create_input($type, $name);
+                            }
+
+                            function create_input($type, $name) {
+                                echo "<input type=\"hidden\" name=\"type\" value=\"$type\">";
+                                echo "<input type=\"hidden\" name=\"name\" value=\"$name\">";
+                                echo "<input type=\"submit\" value=\"Remove $type\" class=\"btn\">";
+                            }
+                        ?>
+                    </form>
+
+
                     <a href="..">Back</a>
                 </div>
             </div>
