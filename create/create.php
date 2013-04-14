@@ -69,9 +69,7 @@ function created_group() {
     $user_ids = array();
     if ($group_users) {
         foreach($group_users as $user) {
-            echo "<BR />USER: " . $user;
             $id = get_user_id(urldecode($user));
-            echo "<BR />ID: " . $id;
             array_push($user_ids, $id);
         }
     }
