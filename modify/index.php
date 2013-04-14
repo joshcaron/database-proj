@@ -4,7 +4,7 @@
     <script type="text/javascript" src="modify.js"></script>
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../main.css">
-    <?php include_once "query.php"; ?>
+    <?php include_once "modify.php"; ?>
 </head>
 <body>
     <div class="row-fluid" id="main_container">
@@ -25,6 +25,7 @@
                                     <option value="user">User</option>
                                     <option value="group">Group</option>
                                     <option value="resource">Resource</option>
+                                    <option value="permission">Permission Set</option>
                                 </select> 
                             </div>
                         </div>
