@@ -20,7 +20,7 @@
                         $type = $_POST["type"];
                         $name = $_POST["name"];
                         echo "TYPE: " . $type . "<br />";
-                        echo "NAME: " . $name . "<br />";
+                        echo "NAME: " . urldecode($name) . "<br />";
                     ?>
                     <a href="..">Back</a>
                 </div>

@@ -38,6 +38,8 @@
                             }
 
                             function create_input($type, $name) {
+                                $type = urlencode($type);
+                                $name = urlencode($name);
                                 echo "<input type=\"hidden\" name=\"type\" value=\"$type\">";
                                 echo "<input type=\"hidden\" name=\"name\" value=\"$name\">";
                                 echo "<input type=\"submit\" value=\"Remove $type\" class=\"btn\">";
