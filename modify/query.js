@@ -31,9 +31,9 @@ function manage_selections() {
     })
 }
 
-function delete_group($group) {
-    if (confirm("Are you sure?")) {
-
+function delete_group(group_name) {
+    if (confirm("Are you sure you want to delete " + group_name + "?")) {
+        $.post("delete.php", { group: group_name });
     }
     return false;
 }
