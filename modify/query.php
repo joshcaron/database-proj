@@ -56,11 +56,12 @@ function modify_user() {
         foreach ($group_names as $group) {
             echo "<tr><td>Group</td><td>";
             echo $group;
-            echo "</td><td><button id=\"$group\" class=\"btn btn-danger group_del\"></td></tr>";
+            echo "</td><td><button onClick='delete_group(\"$group\")' class=\"btn btn-danger group_del\"></td></tr>";
         }
     }
     echo "</tbody></table>";
 }
+
 
 function modify_group() {
     $group_name = urldecode($_POST["group"]);

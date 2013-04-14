@@ -31,32 +31,22 @@ function manage_selections() {
     })
 }
 
-function delete_group() {
-    $("tr").find(".group_del").each(function() {
-        $(this).click(function() {
-            var msg = "Are you sure you want to delete ";
-            msg += $(this).attr("id");
-            msg += "?";
-            var row = $(this).parent().parent();
-            $( "#dialog-confirm" ).dialog({
-              resizable: false,
-              height:140,
-              modal: true,
-              buttons: {
-                "Delete": function() {
-                  row.hide();
-                  $( this ).dialog( "close" );
-                },
-                Cancel: function() {
-                  $( this ).dialog( "close" );
-                }
-              }
-            });
-        })
-    });
+function delete_group($group) {
+    if (confirm("Are you sure?")) {
+
+    }
+    return false;
 }
+
+// function delete_group() {
+//     $("tr").find("btn").each(function() {
+//         $(this).click(function() {
+//             if 
+//         })
+//     });
+// }
 
 $(document).ready(function() {
     manage_selections();
-    delete_group();
+    // delete_group();
 })
