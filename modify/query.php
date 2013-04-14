@@ -64,36 +64,36 @@ function modify_user() {
 function modify_group() {
     $group_name = urldecode($_POST["group"]);
     $gid = get_group_id($gname);
-    // $user_ids = array();
-    // foreach(get_ as $user) {
-    //     $id = get_user_id($user);
-    //     array_push($user_ids, $id);
-    // }
+    $user_ids = users_in_group($gid);
+    $user_names = array();
+    foreach($user_ids as $uid) {
+        $name = get_user_name($uid);
+        array_push($user_names, $name);
+    }
 
-    // $group_ids = array();
-    // foreach($group_groups as $group) {
-    //     $id = get_group_id($group);
-    //     array_push($group_ids, $id);
-    // }
-
-    // create_group($group_name, $user_ids, $group_ids);
+    $group_ids = get_group_groups($gid);
+    $group_names = array();
+    foreach($group_ids as $group) {
+        $name = get_group_id($group);
+        array_push($group_names, $name);
+    }
 
 
     echo "<tr><td>Name</td><td>" . $group_name . "</td></tr>";
 
-    // if ($group_users) {
-    //     foreach ($group_users as $user) {
-    //         echo "<tr><td>User</td><td>";
-    //         echo urldecode($user) . "</td></tr>";
-    //     }
-    // }
+    if ($user_names) {
+        foreach ($user_names as $user) {
+            echo "<tr><td>User</td><td>";
+            echo urldecode($user) . "</td></tr>";
+        }
+    }
     
-    // if ($group_groups) {
-    //     foreach ($group_groups as $group) {
-    //         echo "<tr><td>Group</td><td>";
-    //         echo urldecode($group) . "</td></tr>";
-    //     }
-    // }
+    if ($group_names) {
+        foreach ($group_names as $group) {
+            echo "<tr><td>Group</td><td>";
+            echo urldecode($group) . "</td></tr>";
+        }
+    }
 
     echo "</tbody></table>";
 }

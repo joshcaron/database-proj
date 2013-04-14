@@ -198,10 +198,16 @@ function get_groups_groups($ids) {
 function get_group_name($id) {
   global $LINK;
   $query = "SELECT name FROM groups WHERE id = $id";
-  echo "QUERY: " . $query;
   $result = mysql_query($query);
   $result = mysql_result($result, 0);
-  echo "<br />RESULT: " . $result;
+  return $result;
+}
+
+function get_user_name($id) {
+  global $LINK;
+  $query = "SELECT name FROM users WHERE id = $id";
+  $result = mysql_query($query);
+  $result = mysql_result($result, 0);
   return $result;
 }
 
