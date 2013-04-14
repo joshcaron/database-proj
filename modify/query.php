@@ -75,7 +75,7 @@ function modify_group() {
     $group_ids = get_group_groups($gid);
     $group_names = array();
     foreach($group_ids as $group) {
-        $name = get_group_id($group);
+        $name = get_group_name($group);
         array_push($group_names, $name);
     }
     echo "GROUPS: ";
