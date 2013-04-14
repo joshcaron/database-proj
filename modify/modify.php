@@ -131,7 +131,6 @@ function modify_permission_set() {
     $id = get_group_id($group_select);
     $resource_select = $_POST["resource_select"];
     $action_type = $_POST["action_type"];
-    create_permission_set($id, $resource_select, $action_type);
     echo "<tr><td>Group</td><td>" . urldecode($_POST["group_select"]) . "</td></tr>";
     echo "<tr><td>Resource</td><td>" . urldecode($_POST["resource_select"]) . "</td></tr>";
     echo "<tr><td>Action</td><td>" . urldecode($_POST["action_type"]) . "</td></tr>";
@@ -141,23 +140,19 @@ function modify_permission_set() {
 
 function create_table() {
     $type = modify_what();
-    // Create User
+    // Modify User
     if ($type == "user") {
         modify_user();
     } 
-    // Create Group
+    // Modify Group
     else if ($type == "group") {
         modify_group();
     } 
-    // Create Resource
+    // Modify Resource
     else if ($type == "resource") {
         return modify_resource();
     }
-    // Create Permission Set
-    else if ($type == "permission") {
-        return modify_permission_set();
-    } 
-    // Unrecognized creation
+    // Unrecognized modification
     else {
         echo "</tbody></table><p class=\"text-error\">Error</p>";
     }

@@ -21,6 +21,7 @@
                             create_table();
                         ?>
                         <input type="submit" value="Delete Selected" class="btn">
+                    </form>
                     <a href="..">Back</a>
                 </div>
             </div>

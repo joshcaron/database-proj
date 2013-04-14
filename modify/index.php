@@ -25,7 +25,6 @@
                                     <option value="user">User</option>
                                     <option value="group">Group</option>
                                     <option value="resource">Resource</option>
-                                    <option value="permission">Permission Set</option>
                                 </select> 
                             </div>
                         </div>
