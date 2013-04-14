@@ -136,6 +136,7 @@ function delete_user_from_group($contained,$container) {
 // Int -> [Arrayof Int]
 function users_in_group($id) {
   $query = "SELECT user_id FROM user_group_mapping WHERE group_id = \"$id\"";
+  echo $query;
   $result = mysql_query($query);
   if (!$result) {
     echo "ERROR: " . mysql_error();
