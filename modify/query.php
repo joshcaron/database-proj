@@ -99,8 +99,7 @@ function modify_group() {
 }
 
 function modify_resource() {
-    $resource_name = $_POST["resource_name"];
-    create_resource($resource_name);
+    $resource_name = urldecode($_POST["resource"]);
     echo "<tr><td>Name</td><td>" . $resource_name . "</td></tr>";
     echo "</tbody></table>";
 }

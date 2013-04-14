@@ -62,7 +62,7 @@
                     <div id="resource_options" style="display:none;">
                         <div class="control-group">
                             <div class="control-container">
-                                <label class="control-label" for="resource_name">Name</label>
+                                <label class="control-label" for="resource">Name</label>
                                 <div class="controls">
                                     <select name="resource">
                                         <?php get_all_resource_names(); ?>
