@@ -14,12 +14,14 @@
             <div class="span2"></div>
             <div class="span8" id="inner_container">
                 <h1 id="title">Create Things</h1>
-                <?php 
-                    $type = created_what();
-                    echo "<p>You created a " . $type . "!</p>";
-                    create_table();
-                ?>
-                <a href="..">Back</a>
+                <div id="results">
+                    <?php 
+                        $type = created_what();
+                        echo "<p>You created a " . $type . "!</p>";
+                        create_table();
+                    ?>
+                    <a href="..">Back</a>
+                </div>
             </div>
         <div class="span2"></div>
         </div>
