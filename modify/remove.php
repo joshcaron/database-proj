@@ -19,8 +19,24 @@
                     <?php 
                         $type = $_POST["type"];
                         $name = $_POST["name"];
-                        echo "TYPE: " . $type . "<br />";
-                        echo "NAME: " . urldecode($name) . "<br />";
+                        if ($type == "user") {
+                            $id = get_user_id();
+                            $groups = get_user_groups($id);
+                            foreach ($groups as $group) {
+                                delete_user_from_group($id, $group);
+                            }
+                            delete_user($id);
+                            echo "Deleted " . $name;
+                        }
+
+                        if ($type == "group") {
+
+                        }
+
+                        if ($type == "resource") {
+                            delete_resource($name);
+                            echo "Deleted " . $name;
+                        }
                     ?>
                     <a href="..">Back</a>
                 </div>
