@@ -235,7 +235,7 @@ function get_user_id($user) {
 // String -> Int
 function get_group_id($group){
   global $LINK;
-  $res =  mysql_fetch_array(mysql_query("SELECT id FROM groups WHERE name = \"$group\"",$LINK));
+  $res =  single_results_to_array(mysql_query("SELECT id FROM groups WHERE name = \"$group\"",$LINK));
   return $res[0];
 }
 
