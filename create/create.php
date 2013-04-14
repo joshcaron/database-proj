@@ -67,16 +67,22 @@ function created_group() {
     $group_groups = $_POST["group_groups"];
 
     $user_ids = array();
-    foreach($group_users as $user) {
-        $id = get_user_id($user);
-        array_push($user_ids, $id);
+    if ($group_users) {
+        foreach($group_users as $user) {
+            $id = get_user_id($user);
+            array_push($user_ids, $id);
+        }
     }
+    
 
     $group_ids = array();
-    foreach($group_groups as $group) {
-        $id = get_group_id($group);
-        array_push($group_ids, $id);
+    if ($group_groups) {
+        foreach($group_groups as $group) {
+            $id = get_group_id($group);
+            array_push($group_ids, $id);
+        }
     }
+    
 
     create_group($group_name, $user_ids, $group_ids);
 
