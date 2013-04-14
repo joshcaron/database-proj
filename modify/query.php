@@ -63,15 +63,27 @@ function modify_user() {
 
 function modify_group() {
     $group_name = urldecode($_POST["group"]);
-    echo "GROUP NAME: " . $group_name;
+    echo "THIS NAME: ";
+    var_dump($group_name);
+
     $gid = get_group_id($group_name);
+    echo "THIS ID: ";
+    var_dump($gid);
+
     $user_ids = users_in_group($gid);
+    echo "<br />USER IDS: ";
+    var_dump($user_ids);
+
     $user_names = array();
     foreach($user_ids as $uid) {
         $name = get_user_name($uid);
         array_push($user_names, $name);
     }
+
     $group_ids = get_group_groups($gid);
+    echo "<br />GROUP IDS: ";
+    var_dump($group_ids);
+
     $group_names = array();
     foreach($group_ids as $group) {
         $name = get_group_name($group);
