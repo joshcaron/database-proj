@@ -56,7 +56,7 @@ function modify_user() {
         foreach ($group_names as $group) {
             echo "<tr><td>Group</td><td>";
             echo $group;
-            echo "</td><td><button onClick='delete_group(\"$group\")' class=\"btn btn-danger group_del\"><i class=\"icon-remove\" /></td></tr>";
+            echo "</td><td><button onClick='delete_group(\"$group\")' class=\"btn btn-danger\"><i class=\"icon-remove\" /></td></tr>";
         }
     }
     echo "</tbody></table>";
@@ -92,7 +92,7 @@ function modify_group() {
         foreach ($user_names as $user) {
             echo "<tr><td>User</td><td>";
             echo urldecode($user);
-            echo "</td><td><button class=\"btn btn-danger user_del\"></td></tr>";
+            echo "</td><td><button onClick='delete_user(\"$user\")' class=\"btn btn-danger\"><i class=\"icon-remove\" /></td></tr>";
         }
     }
     
@@ -100,7 +100,7 @@ function modify_group() {
         foreach ($group_names as $g) {
             echo "<tr><td>Group</td><td>";
             echo urldecode($g);
-            echo "</td><td><button id=\"$g\"class=\"btn btn-danger group_del\"></td></tr>";
+            echo "</td><td><button onClick='delete_group(\"$g\")' class=\"btn btn-danger\"><i class=\"icon-remove\" /></td></tr>";
         }
     }
 
