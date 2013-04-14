@@ -62,8 +62,8 @@ function modify_user() {
 }
 
 function modify_group() {
-    $group_name = urldecode($_POST["group"]);
-    $gid = get_group_id($group_name);
+    $this_group_name = urldecode($_POST["group"]);
+    $gid = get_group_id($this_group_name);
     $user_ids = users_in_group($gid);
     $user_names = array();
     foreach($user_ids as $uid) {
@@ -77,9 +77,9 @@ function modify_group() {
         array_push($group_names, $name);
     }
     // Remove this group from the list of groups
-    $group_names = array_diff($group_names, array($group_name));
+    $group_names = array_diff($group_names, array($this_group_name));
 
-    echo "<tr><td>Name</td><td>" . $group_name . "</td></tr>";
+    echo "<tr><td>Name</td><td>" . $this_group_name . "</td></tr>";
 
     if ($user_ids) {
         foreach ($user_names as $user) {
