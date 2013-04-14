@@ -45,7 +45,7 @@ function delete_group() {
                         width: 'auto', resizable: false,
                         buttons: {
                             Yes: function () {
-                                $row.hide();
+                                row.hide();
 
                                 $(this).dialog("close");
                             },
