@@ -56,11 +56,18 @@ function modify_user() {
     if ($user_groups) {
         foreach ($group_names as $group) {
             echo "<tr><td>Group</td><td>";
-            echo $group;
-            echo "</td><td><button onClick='delete_group(\"$group\")' class=\"btn btn-danger\"><i class=\"icon-remove\" /></td></tr>";
+            echo $group . "</td><td>";
+            echo create_checkbox($group);
+            echo "</td></tr>";
+            // echo "</td><td><button onClick='delete_group(\"$group\")' class=\"btn btn-danger\"><i class=\"icon-remove\" /></td></tr>";
         }
     }
     echo "</tbody></table>";
+}
+
+function create_checkbox($name) {
+    $i = "<input type=\"checkbox\" name=\"$name\" value=\"$name\">";
+    echo $i;
 }
 
 
