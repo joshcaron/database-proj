@@ -74,7 +74,7 @@ function created_group() {
     $user_ids = array();
     if ($group_users) {
         foreach($group_users as $user) {
-            $id = get_user_id($user);
+            $id = get_user_id(urldecode($user));
             array_push($user_ids, $id);
         }
     }
@@ -83,7 +83,7 @@ function created_group() {
     $group_ids = array();
     if ($group_groups) {
         foreach($group_groups as $group) {
-            $id = get_group_id($group);
+            $id = get_group_id(urldecode($group));
             array_push($group_ids, $id);
         }
     }
