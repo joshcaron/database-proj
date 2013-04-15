@@ -15,7 +15,7 @@
             <div class="span2"></div>
             <div class="span8" id="inner_container">
                 <div id="results">
-                    <h1 id="title">Modify Things</h1>
+                    <h1 id="title">Delete Things</h1>
                     <?php 
                         $type = $_POST["type"];
                         if ($type == "user") {

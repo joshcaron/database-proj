@@ -132,14 +132,14 @@ function delete_resource($id) {
 // Int Int ->
 function delete_group_from_group($contained,$container) {
   global $LINK;
-  $result = mysql_query("DELETE FROM group_group_mapping WHERE container_id = \"$container\" AND contained_id = \"$contained\"");
+  $result = mysql_query("DELETE FROM group_group_mapping WHERE container_id = $container AND contained_id = $contained");
   if (!$result) {
     echo mysql_error();
   }
 }
 function delete_user_from_group($user_id,$group_id) {
   global $LINK;
-  $result = mysql_query("DELETE FROM user_group_mapping WHERE user_id = \"$group_id\" AND group_id = \"$user_id\"");
+  $result = mysql_query("DELETE FROM user_group_mapping WHERE user_id = $group_id AND group_id = $user_id");
   if (!$result) {
     echo mysql_error();
   }
