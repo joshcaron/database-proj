@@ -61,7 +61,7 @@ function modify_user() {
             $gid = get_group_id($group);
             echo "<tr><td>Group</td><td>";
             echo $group . "</td><td>";
-            echo create_checkbox("user[]", $gid);
+            echo create_checkbox("group[]", $gid);
             echo "</td></tr>";
             // echo "</td><td><button onClick='delete_group(\"$group\")' class=\"btn btn-danger\"><i class=\"icon-remove\" /></td></tr>";
         }
