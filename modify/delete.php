@@ -17,6 +17,9 @@
                 <div id="results">
                     <h1 id="title">Modify Things</h1>
                     <?php 
+                        echo $_POST["from"];
+                        echo $_POST["type"];
+
                         foreach($_POST["user"] as $user) {
                             echo "<br />User: " . $user;
                         }

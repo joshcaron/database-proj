@@ -53,6 +53,9 @@ function modify_user() {
     echo "<h3>" . $user_name . "</h3>";
 
     echo "<table><tbody>";
+    echo "<input type=\"hidden\" name=\"from\" value=\"$user_name\">";
+    echo "<input type=\"hidden\" name=\"type\" value=\"user\">";
+
     if ($user_groups) {
         foreach ($group_names as $group) {
             echo "<tr><td>Group</td><td>";
@@ -98,6 +101,9 @@ function modify_group() {
     echo "<h3>" . $group_name . "</h3>";
 
     echo "<table><tbody>";
+    echo "<input type=\"hidden\" name=\"from\" value=\"$group_name\">";
+    echo "<input type=\"hidden\" name=\"type\" value=\"group\">";
+
     if ($user_ids) {
         foreach ($user_names as $user) {
             echo "<tr><td>User</td><td>";
