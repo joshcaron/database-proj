@@ -22,6 +22,8 @@
                             $uname = $_POST["from"];
                             $uid = get_user_id($uid);
                             $groups = $_POST["group"];
+                            echo "GROUPS FROM POST: ";
+                            var_dump($groups);
                             foreach ($groups as $group) {
                                 $gname = get_group_name($group);
                                 delete_user_from_group($uid, $group);
