@@ -25,7 +25,7 @@
                             foreach ($groups as $group) {
                                 $gname = get_group_name($group);
                                 delete_user_from_group($uid, $group);
-                                echo "Removed " . $uname . " from " . $gname . "<br />"
+                                echo "Removed " . $uname . " from " . $gname . "<br />";
                             }
                         }
 
