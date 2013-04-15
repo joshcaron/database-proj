@@ -20,7 +20,7 @@
                         $type = $_POST["type"];
                         if ($type == "user") {
                             $uname = $_POST["from"];
-                            $uid = get_user_id($uid);
+                            $uid = get_user_id($uname);
                             $groups = $_POST["group"];
                             echo "GROUPS FROM POST: ";
                             var_dump($groups);
