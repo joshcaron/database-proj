@@ -57,7 +57,7 @@ function modify_user() {
         foreach ($group_names as $group) {
             echo "<tr><td>Group</td><td>";
             echo $group . "</td><td>";
-            echo create_checkbox($group);
+            echo create_checkbox("user[]", $group);
             echo "</td></tr>";
             // echo "</td><td><button onClick='delete_group(\"$group\")' class=\"btn btn-danger\"><i class=\"icon-remove\" /></td></tr>";
         }
@@ -66,8 +66,8 @@ function modify_user() {
     }
 }
 
-function create_checkbox($name) {
-    $i = "<input type=\"checkbox\" name=\"$name\" value=\"$name\">";
+function create_checkbox($type, $name) {
+    $i = "<input type=\"checkbox\" name=\"$type\" value=\"$name\">";
     echo $i;
 }
 
@@ -102,7 +102,7 @@ function modify_group() {
         foreach ($user_names as $user) {
             echo "<tr><td>User</td><td>";
             echo urldecode($user) . "</td><td>";
-            echo create_checkbox($user);
+            echo create_checkbox("user[]", $user);
             echo "</td></tr>";
             // echo "</td><td><button onClick='delete_user(\"$user\")' class=\"btn btn-danger\"><i class=\"icon-remove\" /></td></tr>";
         }
@@ -112,7 +112,7 @@ function modify_group() {
         foreach ($group_names as $g) {
             echo "<tr><td>Group</td><td>";
             echo urldecode($g) . "</td><td>";
-            echo create_checkbox($g);
+            echo create_checkbox("group[]", $g);
             echo "</td></tr>";
             // echo "</td><td><button onClick='delete_group(\"$g\")' class=\"btn btn-danger\"><i class=\"icon-remove\" /></td></tr>";
         }

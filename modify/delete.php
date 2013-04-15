@@ -17,7 +17,12 @@
                 <div id="results">
                     <h1 id="title">Modify Things</h1>
                     <?php 
-                        
+                        foreach($_POST["user"] as $user) {
+                            echo "<br />User: " . $user;
+                        }
+                        foreach($_POST["group"] as $group) {
+                            echo "<br />Group: " . $group;
+                        }
                     ?>
                     <a href="..">Back</a>
                 </div>
