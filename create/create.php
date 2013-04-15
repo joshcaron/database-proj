@@ -115,7 +115,7 @@ function created_resource() {
 
 function created_permission_set() {
     $group_select = $_POST["group_select"];
-    $id = get_group_id($group_select);
+    $id = get_group_id(urldecode($group_select));
     $resource_select = $_POST["resource_select"];
     $action_type = $_POST["action_type"];
     create_permission_set($id, $resource_select, $action_type);
