@@ -132,14 +132,18 @@ function delete_resource($id) {
 // Int Int ->
 function delete_group_from_group($contained,$container) {
   global $LINK;
-  $result = mysql_query("DELETE FROM group_group_mapping WHERE container_id = \"$container\" AND contained_id = \"$contained\"", $LINK);
+  $query = "DELETE FROM group_group_mapping WHERE container_id = \"$container\" AND contained_id = \"$contained\"";
+  echo "QUERY: " . $query;
+  $result = mysql_query($query, $LINK);
   if (!$result) {
     echo mysql_error();
   }
 }
 function delete_user_from_group($user_id,$group_id) {
   global $LINK;
-  $result = mysql_query("DELETE FROM user_group_mapping WHERE user_id = \"$group_id\" AND group_id = \"$user_id\"", $LINK);
+  $query = "DELETE FROM user_group_mapping WHERE user_id = \"$group_id\" AND group_id = \"$user_id\"";
+  echo "QUERY: " . $query;
+  $result = mysql_query($query, $LINK);
   if (!$result) {
     echo mysql_error();
   }
@@ -150,6 +154,7 @@ function delete_user_from_group($user_id,$group_id) {
 
 // Int -> [Arrayof Int]
 function users_in_group($id) {
+  global $LINK;
   $query = "SELECT user_id FROM user_group_mapping WHERE group_id = \"$id\"";
   $result = mysql_query($query, $LINK);
   if (!$result) {
