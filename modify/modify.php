@@ -44,7 +44,7 @@ function modify_what() {
 function modify_user() {
     $user_name = urldecode($_POST["user"]);
     $user_id = get_user_id($user_name);
-    $user_groups = get_user_groups($user_id);
+    $user_groups = user_group_direct($user_id);
     $group_names = array();
     foreach($user_groups as $id) {
         $name = get_group_name($id);
