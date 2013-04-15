@@ -20,20 +20,20 @@
                         $type = $_POST["type"];
                         $name = $_POST["name"];
                         if ($type == "user") {
-                            $id = get_user_id($name);
+                            $id = get_user_id(urldecode($name));
                             delete_user($id);
-                            echo "Deleted " . $name;
+                            echo "Deleted " . urldecode($name);
                         }
 
                         if ($type == "group") {
-                            $id = get_group_id($name);
+                            $id = get_group_id(urldecode($name));
                             delete_group($id);
-                            echo "Deleted " . $name;
+                            echo "Deleted " . urldecode($name);
                         }
 
                         if ($type == "resource") {
-                            delete_resource($name);
-                            echo "Deleted " . $name;
+                            delete_resource(urldecode($name));
+                            echo "Deleted " . urldecode($name);
                         }
                     ?>
                     <p><a href="..">Back</a></p>
