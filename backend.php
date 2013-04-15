@@ -141,7 +141,7 @@ function delete_group_from_group($contained,$container) {
 }
 function delete_user_from_group($user_id,$group_id) {
   global $LINK;
-  $query = "DELETE FROM user_group_mapping WHERE user_id = \"$group_id\" AND group_id = \"$user_id\"";
+  $query = "DELETE FROM user_group_mapping WHERE user_id = \"$user_id\" AND group_id = \"$group_id\"";
   echo "QUERY: " . $query;
   $result = mysql_query($query, $LINK);
   if (!$result) {
