@@ -25,9 +25,9 @@ function connect() {
   $username = $url["user"];
   $password = $url["pass"];
   $db = substr($url["path"],1);
-  echo "Server: " . $server;
-  echo "Username: " . $username;
-  echo "Password: " . $password;
+  // echo "Server: " . $server;
+  // echo "Username: " . $username;
+  // echo "Password: " . $password;
   $conn = mysql_connect($server, $username, $password);
   if ($conn) {
     mysql_select_db($db);
@@ -132,14 +132,14 @@ function delete_resource($id) {
 // Int Int ->
 function delete_group_from_group($contained,$container) {
   global $LINK;
-  $result = mysql_query("DELETE FROM group_group_mapping WHERE container_id = $container AND contained_id = $contained");
+  $result = mysql_query("DELETE FROM group_group_mapping WHERE container_id = \"$container\" AND contained_id = \"$contained\"", $LINK);
   if (!$result) {
     echo mysql_error();
   }
 }
 function delete_user_from_group($user_id,$group_id) {
   global $LINK;
-  $result = mysql_query("DELETE FROM user_group_mapping WHERE user_id = $group_id AND group_id = $user_id");
+  $result = mysql_query("DELETE FROM user_group_mapping WHERE user_id = \"$group_id\" AND group_id = \"$user_id\"", $LINK);
   if (!$result) {
     echo mysql_error();
   }
@@ -151,7 +151,7 @@ function delete_user_from_group($user_id,$group_id) {
 // Int -> [Arrayof Int]
 function users_in_group($id) {
   $query = "SELECT user_id FROM user_group_mapping WHERE group_id = \"$id\"";
-  $result = mysql_query($query);
+  $result = mysql_query($query, $LINK);
   if (!$result) {
     echo "ERROR: " . mysql_error();
   }
