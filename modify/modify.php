@@ -118,7 +118,7 @@ function modify_group() {
     
     if ($group_ids) {
         foreach ($group_names as $g) {
-            $gid = get_group_id($group);
+            $gid = get_group_id($g);
             echo "<tr><td>Group</td><td>";
             echo urldecode($g) . "</td><td>";
             echo create_checkbox("group[]", $gid);
