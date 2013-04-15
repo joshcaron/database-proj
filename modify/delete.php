@@ -17,7 +17,7 @@
                 <div id="results">
                     <h1 id="title">Modify Things</h1>
                     <?php 
-                        $type = echo $_POST["type"];
+                        $type = $_POST["type"];
                         if ($type == "user") {
                             $uname = $_POST["from"];
                             $uid = get_user_id($uid);
