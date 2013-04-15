@@ -83,7 +83,6 @@ function create_resource($uri) {
 function create_permission_set($group,$uri,$action,$access = True) {
   global $LINK;
   $query = "INSERT INTO permission_sets (is_allowed, group_id,resource_uri,action_name) VALUES ($access,$group,\"$uri\",\"$action\")";
-  echo "QUERY: " . $query;
   $result = mysql_query($query,$LINK);
   if (!$result) {
     echo "ERROR: " . mysql_error();

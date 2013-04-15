@@ -46,7 +46,7 @@ function created_user() {
     $user_groups = $_POST["user_groups"];
     $group_ids = array();
     foreach($user_groups as $group) {
-        $id = get_group_id($group);
+        $id = get_group_id(urldecode($group));
         array_push($group_ids, $id);
     }
     create_user($user_name, $group_ids);
