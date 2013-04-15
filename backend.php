@@ -163,6 +163,13 @@ function users_in_group($id) {
   return single_results_to_array($result);
 }
 
+function user_group_direct($id) {
+  global $LINK;
+  $query = "SELECT group_id FROM user_group_mapping WHERE user_id = $id";
+  $groups_id = mysql_query($query,$LINK);
+  return single_results_to_array($groups_id);
+}
+
 // Int String String -> Boolean
 function does_user_has_access($uid,$uri,$action){
   $user_groups = get_user_groups($uid);
@@ -239,10 +246,8 @@ function get_user_name($id) {
 
 // Int -> [Arrayof Int]
 function get_user_groups($id) {
-  global $LINK;
-  $query = "SELECT group_id FROM user_group_mapping WHERE user_id = $id";
-  $groups_id = mysql_query($query,$LINK);
-  return get_groups_groups(single_results_to_array($groups_id));
+    $groups = user_group_direct($id);
+    return get_groups_groups($groups);
 }
 
 // String -> Int
