@@ -35,7 +35,7 @@
                             foreach ($groups as $group) {
                                 delete_group_from_group($id, $group);
                             }
-                            $users = users_in_groups($id);
+                            $users = users_in_group($id);
                             foreach ($users as $user) {
                                 delete_user_from_group($user, $id);
                             }
