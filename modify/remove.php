@@ -21,24 +21,12 @@
                         $name = $_POST["name"];
                         if ($type == "user") {
                             $id = get_user_id($name);
-                            $groups = get_user_groups($id);
-                            foreach ($groups as $group) {
-                                delete_user_from_group($id, $group);
-                            }
                             delete_user($id);
                             echo "Deleted " . $name;
                         }
 
                         if ($type == "group") {
                             $id = get_group_id($name);
-                            $groups = get_group_groups($id);
-                            foreach ($groups as $group) {
-                                delete_group_from_group($id, $group);
-                            }
-                            $users = users_in_group($id);
-                            foreach ($users as $user) {
-                                delete_user_from_group($user, $id);
-                            }
                             delete_group($id);
                             echo "Deleted " . $name;
                         }
