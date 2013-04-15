@@ -1,6 +1,6 @@
 <html>
 <head>
-    <script type="text/javascript" src="../jquery.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap-responsive.min.css">
     <link rel="stylesheet" type="text/css" href="../main.css">
