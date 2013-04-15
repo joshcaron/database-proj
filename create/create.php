@@ -78,9 +78,7 @@ function created_group() {
     $group_ids = array();
     if ($group_groups) {
         foreach($group_groups as $group) {
-            echo "<BR />GROUP: " . $group;
             $id = get_group_id(urldecode($group));
-            echo "<BR />ID: " . $id;
             array_push($group_ids, $id);
         }
     }

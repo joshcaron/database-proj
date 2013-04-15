@@ -18,10 +18,10 @@ function clear_all() {
         delete_group($id);
     }
 
-    // $resources = get_all_resources();
-    // foreach($resources as $resource) {
-    //     delete_resource($resource);
-    // }
+    $resources = get_all_resources();
+    foreach($resources as $resource) {
+        delete_resource($resource);
+    }
 }
 
 ?>
