@@ -45,7 +45,7 @@
                             $groups = $_POST["group"];
                             if ($groups) {
                                 foreach($groups as $group) {
-                                    $group_name = $get_group_name($group);
+                                    $group_name = get_group_name($group);
                                     delete_group_from_group($group, $gid);
                                     echo "Removed " . $group_name . " from " . $gname . "<br />";
 
