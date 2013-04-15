@@ -35,7 +35,7 @@
                             $users = $_POST["user"];
                             if ($users) {
                                 foreach($users as $user) {
-                                    $uname = get_user_name($uid);
+                                    $uname = get_user_name($user);
                                     delete_user_from_group($user, $gid);
                                     echo "Removed " . $uname . " from " . $gname . "<br />";
                                 }
