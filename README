@@ -1,0 +1,21 @@
+# Dabase Design Project
+
+## Top Level Description
+
+schema.sql : A SQL dump of an empty DB
+
+backend.php : All the code that interacts with the DB. 
+              Note: The backend doesnt used joins because the primary place joins are
+               needed involve recusive joins (ie generate a join, then join on that results of that
+               join, until not new results are found.)
+
+index.php : The main page
+
+query : The frontend for querying records
+        comes with an index, an inferface to the backend, and a results page
+
+create: The frontend for creating new records
+        comes with an index, an inferface to the backend, and a results page
+
+modify: The frontend for modifying objects
+        comes with an index, two different backend interfaces (modification and deletion), and a results page.
